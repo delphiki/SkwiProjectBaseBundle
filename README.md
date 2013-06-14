@@ -1,4 +1,4 @@
-SkwiProjectStarter
+SkwiProjectBaseBundle
 ==================
 
-An automation system to create project with the tool I usually use
+Base code I usually use on my projects

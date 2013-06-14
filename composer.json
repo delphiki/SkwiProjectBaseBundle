@@ -1,0 +1,23 @@
+{
+    "name": "skwi/project-base-bundle",
+    "type": "library",
+    "description": "Bundle with base code for projects",
+    "keywords": ["bundle", "base"],
+    "homepage": "http://github.com/skwi/SkwiProjectBaseBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cédric Spalvieri",
+            "email": "cedric@skwi.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Skwi": "src"
+        }
+    }
+}
