@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="skwi.projectbase.base_manager.class">Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="skwi.projectbase.base_manager" class="%skwi.projectbase.base_manager.class%">
+            <call method="setEntityManager">
+                <argument type="service" id="skwi.projectbase.entity_manager" />
+            </call>
+            <call method="setBundleName">
+                <argument>%skwi.projectbase.entity_bundle_name%</argument>
+            </call>
+            <call method="setBundleNamespace">
+                <argument>%skwi.projectbase.entity_bundle_namespace%</argument>
+            </call>
+        </service>
+    </services>
+</container>
