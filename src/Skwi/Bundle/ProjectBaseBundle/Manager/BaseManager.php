@@ -38,17 +38,6 @@ abstract class BaseManager
     protected $repository;
 
     /**
-     * Manager Construct
-     * Override this method to inject more dependencies
-     *
-     * @param string        $entity Entity name, with Symfony formated Namespace
-     */
-    public function __construct($entity)
-    {
-
-    }
-
-    /**
      * Set the Doctrine Entity Manager
      * @param EntityManager $em     Doctrine Entity Manager
      */
@@ -81,7 +70,7 @@ abstract class BaseManager
      */
     public function setBundleNamespace($bundleNamespace)
     {
-        $this->bundleNamespacespace = $bundleName;
+        $this->bundleNamespace = $bundleName;
     }
 
     /**
@@ -105,7 +94,8 @@ abstract class BaseManager
             }
         }
 
-        if (preg_match('#^NovawayCrmBundle:([a-z]+)$#i',$entityName,$match)) {
+        $matchTest = sprintf('#^%$1s:([a-z]+)$#i', $this->bundleName);
+        if (preg_match($matchTest, $entityName,$match)) {
             if ($entityProperty) {
                 $this->$entityProperty = $match[1];
             }
@@ -180,7 +170,7 @@ abstract class BaseManager
      **/
     public function createNew($className = null)
     {
-        $class = 'Novaway\\Bundle\\CrmBundle\\Entity\\'.($className ? $className : $this->entityName);
+        $class = sprintf('%s\\Entity\\%s', $this->bundleNamespace, ($className ? $className : $this->entityName));
 
         return new $class();
     }
@@ -283,7 +273,8 @@ abstract class BaseManager
      */
     public function checkInstance($entity)
     {
-        return is_a($entity, 'Novaway\\Bundle\\CrmBundle\\Entity\\'.$this->entityName);
+        $class = sprintf('%s\\Entity\\', $this->bundleNamespace, $this->entityName);
+        return is_a($entity, $class);
     }
 
     /**

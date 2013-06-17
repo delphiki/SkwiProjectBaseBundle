@@ -20,9 +20,12 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('skwi_project_base');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+            ->scalarNode('entity_bundle_name')->isRequired()->end()
+            ->scalarNode('entity_bundle_namespace')->isRequired()->end()
+            ->end()
+            ;
 
         return $treeBuilder;
     }

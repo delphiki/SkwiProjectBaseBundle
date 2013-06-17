@@ -1,6 +1,6 @@
 <?php
 
-namespace Skwi\Bundle\DependencyInjection;
+namespace Skwi\Bundle\ProjectBaseBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class ProjectBaseExtension extends Extension
+class SkwiProjectBaseExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -24,5 +24,8 @@ class ProjectBaseExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $container->setParameter('skwi.projectbase.entity_bundle_name', $config['entity_bundle_name']);
+        $container->setParameter('skwi.projectbase.entity_bundle_namespace', $config['entity_bundle_namespace']);
     }
 }

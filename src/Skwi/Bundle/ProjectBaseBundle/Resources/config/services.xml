@@ -11,7 +11,7 @@
     <services>
         <service id="skwi.projectbase.base_manager" class="%skwi.projectbase.base_manager.class%">
             <call method="setEntityManager">
-                <argument type="service" id="skwi.projectbase.entity_manager" />
+                <argument type="service" id="doctrine.orm.entity_manager" />
             </call>
             <call method="setBundleName">
                 <argument>%skwi.projectbase.entity_bundle_name%</argument>
