@@ -19,4 +19,14 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+        <whitelist>
+            <directory>src/Skwi/Bundle/ProjectBaseBundle/</directory>
+            <exclude>
+                <directory>src/Skwi/Bundle/ProjectBaseBundle/Resources</directory>
+                <directory>src/Skwi/Bundle/ProjectBaseBundle/Tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
 </phpunit>

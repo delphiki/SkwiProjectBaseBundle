@@ -1,18 +1,18 @@
 <?php
 
-namespace Skwi\Bundle\ProjectBaseBundle\Tests;
+namespace Skwi\Bundle\ProjectBaseBundle\Tests\Manager;
 
-use Skwi\Bundle\ProjectBaseBundle\Tests\ContainerAwareUnitTestCase;
-use Skwi\Bundle\ProjectBaseBundle\Tests\Fake\FakeEntity;
-use Skwi\Bundle\ProjectBaseBundle\Tests\Fake\FakeManager;
-
+use Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Entity\FakeEntity;
+use Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager;
 /**
  * Abstract Test case for Manager extending Novaway\Bundle\CrmBundle\Manager\BaseManager class.
  *
  * @author Cédric Spalvieri <cedric@novaway.fr>
  */
-abstract class BaseManagerTestCase extends ContainerAwareUnitTestCase
+class BaseManagerTestCase extends \PHPUnit_Framework_TestCase
 {
+    protected $isEntityNew;
+
     /** Tested objects **/
     protected $entityName;
     protected $entity;
@@ -23,14 +23,15 @@ abstract class BaseManagerTestCase extends ContainerAwareUnitTestCase
      */
     protected function setUp()
     {
-        var_dump('toto');exit;
         $this->entityName = 'FakeEntity';
         $this->entity = new FakeEntity();
 
         $this->manager = new FakeManager();
+        $this->manager->setBundleName('FakeBundle');
+        $this->manager->setBundleNamespace('Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle');
+
         $this->manager->setEntityManager($this->getEmMock());
         $this->manager->setEntity($this->entityName);
-        $this->manager->setBundleName('FakeBundle');
     }
 
     /**
@@ -39,7 +40,8 @@ abstract class BaseManagerTestCase extends ContainerAwareUnitTestCase
     public function testCreateNew()
     {
         $result = $this->manager->createNew($this->entityName);
-        var_dump($result);exit;
+
+        $this->assertTrue($result instanceof FakeEntity);
     }
 
     /**
@@ -49,7 +51,7 @@ abstract class BaseManagerTestCase extends ContainerAwareUnitTestCase
     protected function getRepoMock()
     {
         $repoMock  = $this->getMock(
-            '\Novaway\Bundle\CrmBundle\Repository\\'.$this->entityName.'Repository',
+            '\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Repository\\'.$this->entityName.'Repository',
             array('find'), array(), '', false);
 
         $repoMock
@@ -58,5 +60,40 @@ abstract class BaseManagerTestCase extends ContainerAwareUnitTestCase
         ->will($this->returnValue($this->entity));
 
         return $repoMock;
+    }
+
+    protected function getEmMock()
+    {
+        /** UOW Mock **/
+        $uowMock  = $this->getMock('\Doctrine\ORM\UnitOfWork',
+            array('getEntityState'), array(), '', false);
+
+        $uowMock->expects($this->any())
+        ->method('getEntityState')
+        ->will($this->returnValue(
+            $this->isEntityNew ? \Doctrine\ORM\UnitOfWork::STATE_NEW : \Doctrine\ORM\UnitOfWork::STATE_MANAGED ));
+
+        /** EM Mock **/
+        $emMock  = $this->getMock('\Doctrine\ORM\EntityManager',
+            array('getRepository', 'persist', 'flush', 'getUnitOfWork'),
+            array(), '', false);
+
+        $emMock->expects($this->any())
+        ->method('getRepository')
+        ->will($this->returnValue($this->getRepoMock()));
+
+        $emMock->expects($this->any())
+        ->method('persist')
+        ->will($this->returnValue(null));
+
+        $emMock->expects($this->any())
+        ->method('flush')
+        ->will($this->returnValue(null));
+
+        $emMock->expects($this->any())
+        ->method('getUnitOfWork')
+        ->will($this->returnValue($uowMock));
+
+        return $emMock;
     }
 }

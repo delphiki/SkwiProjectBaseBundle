@@ -70,7 +70,7 @@ abstract class BaseManager
      */
     public function setBundleNamespace($bundleNamespace)
     {
-        $this->bundleNamespace = $bundleName;
+        $this->bundleNamespace = $bundleNamespace;
     }
 
     /**
@@ -94,8 +94,8 @@ abstract class BaseManager
             }
         }
 
-        $matchTest = sprintf('#^%$1s:([a-z]+)$#i', $this->bundleName);
-        if (preg_match($matchTest, $entityName,$match)) {
+        $matchTest = sprintf('#^%s:([a-z]+)$#i', $this->bundleName);
+        if (preg_match($matchTest, $entityName, $match)) {
             if ($entityProperty) {
                 $this->$entityProperty = $match[1];
             }
