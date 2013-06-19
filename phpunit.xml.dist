@@ -10,7 +10,7 @@
     convertWarningsToExceptions = "true"
     processIsolation            = "false"
     stopOnFailure               = "false"
-    syntaxCheck                 = "false"
+    syntaxCheck                 = "true"
     bootstrap                   = "src/Skwi/Bundle/ProjectBaseBundle/Tests/bootstrap.php" >
 
     <testsuites>
@@ -18,16 +18,5 @@
             <directory>src/Skwi/Bundle/ProjectBaseBundle/Tests</directory>
         </testsuite>
     </testsuites>
-
-
-    <filter>
-        <whitelist>
-            <directory>src/Skwi/Bundle/ProjectBaseBundle/</directory>
-            <exclude>
-                <directory>src/Skwi/Bundle/ProjectBaseBundle/Resources</directory>
-                <directory>src/Skwi/Bundle/ProjectBaseBundle/Tests</directory>
-            </exclude>
-        </whitelist>
-    </filter>
 
 </phpunit>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Skwi\Bundle\ProjectBaseBundle\Test;
+namespace Skwi\Bundle\ProjectBaseBundle\Tests;
 
 abstract class ContainerAwareUnitTestCase extends \PHPUnit_Framework_TestCase
 {
