@@ -5,20 +5,34 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+
+        <!-- ENCODER -->
+        <parameter key="skwi.projectbase.password_encoder.class">Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder</parameter>
+
+        <!-- BASEMANAGER -->
         <parameter key="skwi.projectbase.base_manager.class">Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</parameter>
+
     </parameters>
 
     <services>
+
+        <!-- ENCODER -->
+        <service id="skwi.projectbase.password_encoder" class="%skwi.projectbase.base_manager.class%" abstract="true">
+            <argument type="service" id="doctrine.orm.password_encoder" />
+        </service>
+
+        <!-- BASE MANAGER -->
         <service id="skwi.projectbase.base_manager" class="%skwi.projectbase.base_manager.class%" abstract="true">
             <call method="setEntityManager">
-                <argument type="service" id="doctrine.orm.entity_manager" />
+                <argument>%skwi.projectbase.config.entity_bundle_name%</argument>
             </call>
             <call method="setBundleName">
-                <argument>%skwi.projectbase.entity_bundle_name%</argument>
+                <argument>%skwi.projectbase.config.entity_bundle_name%</argument>
             </call>
             <call method="setBundleNamespace">
-                <argument>%skwi.projectbase.entity_bundle_namespace%</argument>
+                <argument>%skwi.projectbase.config.entity_bundle_namespace%</argument>
             </call>
         </service>
+
     </services>
 </container>

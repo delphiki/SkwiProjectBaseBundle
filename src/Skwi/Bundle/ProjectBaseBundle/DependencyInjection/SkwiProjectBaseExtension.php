@@ -25,7 +25,11 @@ class SkwiProjectBaseExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->setParameter('skwi.projectbase.entity_bundle_name', $config['entity_bundle_name']);
-        $container->setParameter('skwi.projectbase.entity_bundle_namespace', $config['entity_bundle_namespace']);
+        //Base Manager
+        $container->setParameter('skwi.projectbase.config.entity_bundle_name', $config['entity_bundle_name']);
+        $container->setParameter('skwi.projectbase.config.entity_bundle_namespace', $config['entity_bundle_namespace']);
+
+        //Encoder
+        $container->setParameter('skwi.projectbase.config.password_encoder', $config['password_encoder']);
     }
 }

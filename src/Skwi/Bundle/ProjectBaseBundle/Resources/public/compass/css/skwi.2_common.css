@@ -1,0 +1,25 @@
+/* line 1, ../compass/skwi.2_common.scss */
+.clear {
+  width: 100%;
+  clear: both;
+}
+
+/* Forms */
+/* line 7, ../compass/skwi.2_common.scss */
+label.block {
+  display: block;
+  height: auto;
+  margin: 0.2em 0 0.5em;
+}
+
+/* Messages */
+/* line 14, ../compass/skwi.2_common.scss */
+.error, .success, .info, .warning {
+  width: 100%;
+  padding: 5px 50px;
+  border-style: solid;
+  border-width: 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}

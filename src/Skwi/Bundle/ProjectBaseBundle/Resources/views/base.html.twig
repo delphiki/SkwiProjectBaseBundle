@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        {% block head %}{% endblock head %}
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/skwiprojectbase/compass/css/skwi.0_reset.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/skwiprojectbase/compass/css/skwi.1_normalize.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/skwiprojectbase/compass/css/skwi.2_common.css') }}" />
+        {% endblock stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block basecontent %}{% endblock basecontent %}
+        {% block javascripts %}{% endblock javascripts %}
+    </body>
+</html>
