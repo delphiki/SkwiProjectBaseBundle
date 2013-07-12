@@ -17,14 +17,14 @@
     <services>
 
         <!-- ENCODER -->
-        <service id="skwi.projectbase.password_encoder" class="%skwi.projectbase.base_manager.class%" abstract="true">
-            <argument type="service" id="doctrine.orm.password_encoder" />
+        <service id="skwi.projectbase.password_encoder" class="%skwi.projectbase.password_encoder.class%" abstract="false">
+            <argument>%skwi.projectbase.config.password_encoder%</argument>
         </service>
 
         <!-- BASE MANAGER -->
         <service id="skwi.projectbase.base_manager" class="%skwi.projectbase.base_manager.class%" abstract="true">
             <call method="setEntityManager">
-                <argument>%skwi.projectbase.config.entity_bundle_name%</argument>
+                <argument type="service" id="doctrine.orm.entity_manager" />
             </call>
             <call method="setBundleName">
                 <argument>%skwi.projectbase.config.entity_bundle_name%</argument>

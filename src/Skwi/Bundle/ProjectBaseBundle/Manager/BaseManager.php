@@ -13,7 +13,7 @@ use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 abstract class BaseManager
 {
     /**
-     * @var \Doctrine\ORM\EntityManager $em entity manager
+     * @var \Doctrine\ORM\EntityManager $em
      */
     protected $em;
 
@@ -33,7 +33,7 @@ abstract class BaseManager
     protected $entityName;
 
     /**
-     * @var \Doctrine\ORM\EntityRepository $em repository
+     * @var \Doctrine\ORM\EntityRepository $repository
      */
     protected $repository;
 

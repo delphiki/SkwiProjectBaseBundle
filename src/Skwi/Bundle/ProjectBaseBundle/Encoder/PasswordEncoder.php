@@ -16,7 +16,7 @@ class PasswordEncoder implements PasswordEncoderInterface
 
     public function encodePassword($raw, $salt)
     {
-        $string = $raw.$salt;
+        $string = $salt.$raw.$salt;
         return call_user_func($this->algorithm, $string);
     }
 
