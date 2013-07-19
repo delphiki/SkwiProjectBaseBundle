@@ -31,5 +31,8 @@ class SkwiProjectBaseExtension extends Extension
 
         //Encoder
         $container->setParameter('skwi.projectbase.config.password_encoder', $config['password_encoder']);
+
+        //Pager
+        $container->setParameter('skwi.projectbase.config.pager_max_per_page', $config['pager_max_per_page']);
     }
 }

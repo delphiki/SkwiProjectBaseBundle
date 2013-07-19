@@ -32,6 +32,17 @@
             <call method="setBundleNamespace">
                 <argument>%skwi.projectbase.config.entity_bundle_namespace%</argument>
             </call>
+            <call method="setPagerDefaultMaxPerPage">
+                <argument>%skwi.projectbase.config.pager_max_per_page%</argument>
+            </call>
+        </service>
+
+        <!-- TWIG EXTENSIONS -->
+        <service id="skwi.projectbase.twig.texthelper_extension" class="Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension">
+            <tag name="twig.extension" />
+        </service>
+        <service id="skwi.projectbase.twig.encoder_extension" class="Skwi\Bundle\ProjectBaseBundle\Twig\Extension\EncoderExtension">
+            <tag name="twig.extension" />
         </service>
 
     </services>

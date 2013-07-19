@@ -23,8 +23,8 @@ class TextHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * Test for method slug
      *
-     * @param string   $string The string to slug
-     * @param string $slug The slugged string
+     * @param string $string The string to slug
+     * @param string $slug   The slugged string
      *
      * @dataProvider slugProvider
      */
