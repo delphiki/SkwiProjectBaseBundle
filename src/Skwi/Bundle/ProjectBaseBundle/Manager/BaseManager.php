@@ -44,11 +44,11 @@ abstract class BaseManager
      * Number of max item on paginated pages
      * @var integer
      */
-    protected $pagerMaxPerPage
+    protected $pagerMaxPerPage;
 
     /**
      * Set the Doctrine Entity Manager
-     * @param EntityManager $em Doctrine Entity Manager
+     * @param EntityManager $em     Doctrine Entity Manager
      */
     public function setEntityManager(EntityManager $em)
     {
@@ -66,7 +66,7 @@ abstract class BaseManager
 
     /**
      * Set the managed entity Bundle Name
-     * @param string $bundleName The bundle Name
+     * @param string $bundleName     The bundle Name
      */
     public function setBundleName($bundleName)
     {
@@ -75,7 +75,7 @@ abstract class BaseManager
 
     /**
      * Set the managed entity Bundle Namespace
-     * @param string $bundleNamespace The bundle Namespace
+     * @param string $bundleNamespace     The bundle Namespace
      */
     public function setBundleNamespace($bundleNamespace)
     {
@@ -299,7 +299,6 @@ abstract class BaseManager
     public function checkInstance($entity)
     {
         $class = sprintf('%s\\Entity\\', $this->bundleNamespace, $this->entityName);
-
         return is_a($entity, $class);
     }
 
@@ -363,8 +362,8 @@ abstract class BaseManager
 
     /**
      * Init pager with the query builder
-     * @param  QueryBuilder $queryBuilder The query builder to paginate
-     * @return PagerFanta   The pager
+     * @param QueryBuilder $queryBuilder The query builder to paginate
+     * @return PagerFanta The pager
      */
     public function getPagerFromQueryBuilder(QueryBuilder $queryBuilder, $maxPerPage = null)
     {
