@@ -3,7 +3,10 @@
 namespace Skwi\Bundle\ProjectBaseBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * Abstract class extended by managers.
@@ -160,6 +163,22 @@ abstract class BaseManager
     public function findAll()
     {
         return $this->repository->findAll();
+    }
+
+    /**
+     * Retruns all the entities
+     *
+     * @return Doctrine Collection all the entities
+     */
+    public function findAllPaginated($page, $maxPerPage = 10)
+    {
+        //TODO : max per page in config
+        $qb = $this->repository->createQueryBuilder('e');
+
+        $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
+        $pager->setCurrentPage($page);
+
+        return $pager;
     }
 
     /**
@@ -324,5 +343,20 @@ abstract class BaseManager
                       ->getQuery();
 
         return $query->getSingleScalarResult();
+    }
+
+    /**
+     * Init pager with the query builder
+     * @param QueryBuilder $queryBuilder The query builder to paginate
+     * @return PagerFanta The pager
+     */
+    public function getPagerFromQueryBuilder(QueryBuilder $queryBuilder, $maxPerPage = 10)
+    {
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+
+        $pagerfanta->setMaxPerPage($maxPerPage);
+
+        return $pagerfanta;
     }
 }
