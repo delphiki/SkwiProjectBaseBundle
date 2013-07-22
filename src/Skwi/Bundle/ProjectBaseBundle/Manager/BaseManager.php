@@ -47,6 +47,21 @@ abstract class BaseManager
     protected $pagerMaxPerPage;
 
     /**
+     * Application kernel root directory
+     * @var integer
+     */
+    protected $kernelRootDir;
+
+    /**
+     * Set the Application kernel root directory
+     * @param string $kernelRootDir     Application kernel root directory
+     */
+    public function setKernelRootDir($kernelRootDir)
+    {
+        $this->kernelRootDir = $kernelRootDir;
+    }
+
+    /**
      * Set the Doctrine Entity Manager
      * @param EntityManager $em     Doctrine Entity Manager
      */

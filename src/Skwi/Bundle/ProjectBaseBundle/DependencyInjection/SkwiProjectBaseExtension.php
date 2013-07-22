@@ -26,6 +26,7 @@ class SkwiProjectBaseExtension extends Extension
         $loader->load('services.xml');
 
         //Base Manager
+        $container->setParameter('skwi.projectbase.config.kernel_root_dir', $config['kernel_root_dir']);
         $container->setParameter('skwi.projectbase.config.entity_bundle_name', $config['entity_bundle_name']);
         $container->setParameter('skwi.projectbase.config.entity_bundle_namespace', $config['entity_bundle_namespace']);
 
@@ -34,5 +35,6 @@ class SkwiProjectBaseExtension extends Extension
 
         //Pager
         $container->setParameter('skwi.projectbase.config.pager_max_per_page', $config['pager_max_per_page']);
+
     }
 }

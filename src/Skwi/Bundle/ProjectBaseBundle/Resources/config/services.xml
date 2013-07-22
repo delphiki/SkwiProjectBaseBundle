@@ -23,6 +23,9 @@
 
         <!-- BASE MANAGER -->
         <service id="skwi.projectbase.base_manager" class="%skwi.projectbase.base_manager.class%" abstract="true">
+            <call method="setKernelRootDir">
+                <argument>%skwi.projectbase.config.kernel_root_dir%</argument>
+            </call>
             <call method="setEntityManager">
                 <argument type="service" id="doctrine.orm.entity_manager" />
             </call>

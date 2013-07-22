@@ -24,6 +24,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('entity_bundle_name')->isRequired()->end()
             ->scalarNode('entity_bundle_namespace')->isRequired()->end()
+            ->scalarNode('kernel_root_dir')->isRequired()->end()
             ->scalarNode('password_encoder')->end()
             ->scalarNode('pager_max_per_page')->end()
             ->end()
