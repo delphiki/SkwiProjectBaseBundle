@@ -166,16 +166,20 @@ abstract class BaseManager
     }
 
     /**
-     * Retruns the entity matching a specific Id;
+     * Retruns the entity matching a specific Id optionnaly
+     * for a specific type of Entity handled by this manager
      *
-     * @param  int   $id The id of the entity
+     * @param int    $id         The id of the entity
+     * @param string $entityName The entity name
+     *
      * @return mixed The matching entity
      */
-    public function find($id)
+    public function find($id, $entityName = null)
     {
-        return $this->repository->find($id);
-    }
+        $repositoryAttr = !is_null($entityName) ? lcfirst($entityName) . 'Repository' : 'repository';
 
+        return $this->$repositoryAttr->find($id);
+    }
     /**
      * Retruns all the entities
      *
