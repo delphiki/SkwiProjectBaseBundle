@@ -27,6 +27,7 @@ class SkwiProjectBaseExtension extends Extension
 
         //Base Manager
         $container->setParameter('skwi.projectbase.config.kernel_root_dir', $config['kernel_root_dir']);
+        // $container->setParameter('skwi.projectbase.config.object_manager', $config['object_manager']);
         $container->setParameter('skwi.projectbase.config.entity_bundle_name', $config['entity_bundle_name']);
         $container->setParameter('skwi.projectbase.config.entity_bundle_namespace', $config['entity_bundle_namespace']);
 

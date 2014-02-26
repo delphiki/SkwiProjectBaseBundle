@@ -26,9 +26,10 @@
             <call method="setKernelRootDir">
                 <argument>%skwi.projectbase.config.kernel_root_dir%</argument>
             </call>
-            <call method="setEntityManager">
-                <argument type="service" id="doctrine.orm.entity_manager" />
-            </call>
+            <!-- TODO : FIND A WAY TO SET OBJECT MANAGER IN PROJECT CONFIGURATION IF POSSIBLE  -->
+            <!-- <call method="setObjectManager">
+                <argument>%skwi.projectbase.config.object_manager%</argument>
+            </call> -->
             <call method="setBundleName">
                 <argument>%skwi.projectbase.config.entity_bundle_name%</argument>
             </call>

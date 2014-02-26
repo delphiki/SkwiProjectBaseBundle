@@ -2,7 +2,7 @@
 
 namespace Skwi\Bundle\ProjectBaseBundle\Manager;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
@@ -16,9 +16,9 @@ use Pagerfanta\Pagerfanta;
 abstract class BaseManager
 {
     /**
-     * @var \Doctrine\ORM\EntityManager $em
+     * @var \Doctrine\Common\Persistence\ObjectManager $om
      */
-    protected $em;
+    protected $om;
 
     /**
      * @var string $bundleName
@@ -31,12 +31,12 @@ abstract class BaseManager
     protected $bundleNamespace;
 
     /**
-     * @var string $entityName
+     * @var string $objectName
      */
-    protected $entityName;
+    protected $objectName;
 
     /**
-     * @var \Doctrine\ORM\EntityRepository $repository
+     * @var \Doctrine\Common\Persistence\ObjectRepository $repository
      */
     protected $repository;
 
@@ -44,13 +44,25 @@ abstract class BaseManager
      * Number of max item on paginated pages
      * @var integer
      */
-    protected $pagerMaxPerPage;
+    protected $pagerMaxPerPage = 10;
 
     /**
      * Application kernel root directory
      * @var integer
      */
     protected $kernelRootDir;
+
+    /**
+     * Tells whether Documents or Entities are managed
+     * @return string "Document" or "Entity"
+     */
+    protected function getManagedType()
+    {
+        $type = substr(get_class($this->om), strrpos(get_class($this->om), '\\') + 1);
+        $type = str_replace('Manager','', $type);
+
+        return $type;
+    }
 
     /**
      * Set the Application kernel root directory
@@ -62,25 +74,25 @@ abstract class BaseManager
     }
 
     /**
-     * Set the Doctrine Entity Manager
-     * @param EntityManager $em     Doctrine Entity Manager
+     * Set the Doctrine Object Manager
+     * @param ObjectManager $om     Doctrine Object Manager
      */
-    public function setEntityManager(EntityManager $em)
+    public function setObjectManager(ObjectManager $om)
     {
-        $this->em = $em;
+        $this->om = $om;
     }
 
     /**
-     * Set the managed Entity config
-     * @param string $entity The entity Name
+     * Set the managed Object config
+     * @param string $object The object Name
      */
-    public function setEntity($entity)
+    public function setObject($object)
     {
-        $this->decodeEntityName($entity, 'entityName', 'repository');
+        $this->decodeObjectName($object, 'objectName', 'repository');
     }
 
     /**
-     * Set the managed entity Bundle Name
+     * Set the managed object Bundle Name
      * @param string $bundleName     The bundle Name
      */
     public function setBundleName($bundleName)
@@ -89,7 +101,7 @@ abstract class BaseManager
     }
 
     /**
-     * Set the managed entity Bundle Namespace
+     * Set the managed object Bundle Namespace
      * @param string $bundleNamespace     The bundle Namespace
      */
     public function setBundleNamespace($bundleNamespace)
@@ -98,107 +110,132 @@ abstract class BaseManager
     }
 
     /**
-     * Decode EntityName according to the Bundle, and store linked properties
+     * Decode ObjectName according to the Bundle, and store linked properties
      *
-     * @param  string $entityName     The Bundle coded Entity Name
-     * @param  string $entityProperty The property where the name will be stored
+     * @param  string $objectName     The Bundle coded Object Name
+     * @param  string $objectProperty The property where the name will be stored
      * @param  string $repoProperty   The property where the related repository will be stored
      * @return void
      */
-    protected function decodeEntityName($entityName, $entityProperty = null, $repoProperty = null)
+    protected function decodeObjectName($objectName, $objectProperty = null, $repoProperty = null)
     {
-        foreach (array($entityProperty, $repoProperty) as $property) {
+        foreach (array($objectProperty, $repoProperty) as $property) {
             if ($property && !property_exists($this, $property)) {
                 throw new NoSuchPropertyException(
                     sprintf('The property %s does not exist for class %s',
                         $property,
-                        get_class($entity)
+                        get_class($object)
                     )
                 );
             }
         }
 
         $matchTest = sprintf('#^%s:([a-z]+)$#i', $this->bundleName);
-        if (preg_match($matchTest, $entityName, $match)) {
-            if ($entityProperty) {
-                $this->$entityProperty = $match[1];
+        if (preg_match($matchTest, $objectName, $match)) {
+            if ($objectProperty) {
+                $this->$objectProperty = $match[1];
             }
             if ($repoProperty) {
-                $this->$repoProperty = $this->em->getRepository($entityName);
+                $this->$repoProperty = $this->om->getRepository($objectName);
             }
         }
     }
 
     /**
-     * Saves the specified instance of an entity
+     * Saves the specified instance of an object
      *
-     * @param  mixed $entity The entity to save
-     * @return mixed The saved entity
+     * @param  mixed $object The object to save
+     * @return mixed The saved object
      */
-    public function save($entity)
+    public function save($object)
     {
-        return $this->persistAndFlush($entity);
+        return $this->persistAndFlush($object);
     }
 
     /**
-     * Deletes the specified instance of an entity
+     * Deletes the specified instance of an object
      *
-     * @param  mixed $entity The entity to save
+     * @param  mixed $object The object to save
      * @return void
      */
-    public function delete($entity)
+    public function delete($object)
     {
-        $this->em->remove($entity);
-        $this->em->flush();
+        $this->om->remove($object);
+        $this->om->flush();
 
         return 1;
     }
 
     /**
-     * Remove the specified instance of an entity
+     * Remove the specified instance of an object
      *
-     * @param  mixed $entity The entity to save
+     * @param  mixed $object The object to save
      * @return void
      */
-    public function remove($entity)
+    public function remove($object)
     {
-        $this->em->remove($entity);
+        $this->om->remove($object);
     }
 
     /**
-     * Retruns the entity matching a specific Id optionnaly
-     * for a specific type of Entity handled by this manager
+     * Retruns the object matching a specific Id optionnaly
+     * for a specific type of Object handled by this manager
      *
-     * @param int    $id         The id of the entity
-     * @param string $entityName The entity name
+     * @param int    $id         The id of the object
+     * @param string $objectName The object name
      *
-     * @return mixed The matching entity
+     * @return mixed The matching object
      */
-    public function find($id, $entityName = null)
+    public function find($id, $objectName = null)
     {
-        $repositoryAttr = !is_null($entityName) ? lcfirst($entityName) . 'Repository' : 'repository';
+        $repositoryAttr = !is_null($objectName) ? lcfirst($objectName) . 'Repository' : 'repository';
 
         return $this->$repositoryAttr->find($id);
     }
+
     /**
-     * Retruns all the entities
-     *
-     * @return Doctrine Collection all the entities
+     * Base query filtering activated objects
+     * @param  boolean $onlyActive Set to FALSE to retrun also inactive objects
+     * @return QueryBuilder        A doctrine query builder
      */
-    public function findAll()
+    private function createBaseQueryBuilder($onlyActive = true)
     {
-        return $this->repository->findAll();
+        $qb = $this->repository->createQueryBuilder('o');
+
+        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
+            if($this->getManagedType() == 'Document'){
+                $qb->field('state')->equals(true);
+            } else {
+                $qb->andWhere('o.state = TRUE');
+            }
+        }
+
+        return $qb;
     }
 
     /**
-     * Retruns all the entities
+     * Retruns all the objects
      *
-     * @return Doctrine Collection all the entities
+     * @return Doctrine Collection all the objects
      */
-    public function findAllPaginated($page, $maxPerPage = 10)
+    public function findAll($onlyActive = true)
+    {
+        if($this->getManagedType() == 'Document'){
+            $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
+        } else {
+            $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
+        }
+    }
+
+    /**
+     * Retruns all the objects
+     *
+     * @return Doctrine Collection all the objects
+     */
+    public function findAllPaginated($page, $maxPerPage = null, $onlyActive = true)
     {
         //TODO : max per page in config
-        $qb = $this->repository->createQueryBuilder('e');
+        $qb = $this->createBaseQueryBuilder($onlyActive);
 
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
         $pager->setCurrentPage($page);
@@ -207,164 +244,154 @@ abstract class BaseManager
     }
 
     /**
-     * Creates a new Instance of the specific Entity
+     * Return the full class name
+     * @param  string $className A basic class name (null = managed objects)
+     * @return string            The full class name
+     */
+    protected function getFullClassname($className = null)
+    {
+        return sprintf('%s\\%s\\%s',
+            $this->bundleNamespace,
+            $this->getManagedType(),
+            ($className ? $className : $this->objectName));
+    }
+
+    /**
+     * Creates a new Instance of the specific Object
      *
-     * @param $className A specific entity class name. If null, managed Entity Will be used
-     * @return mixed The created Entity
+     * @param $className A specific object class name. If null, managed Object Will be used
+     * @return mixed The created Object
      **/
     public function createNew($className = null)
     {
-        $class = sprintf('%s\\Entity\\%s', $this->bundleNamespace, ($className ? $className : $this->entityName));
+        $fullClassname = $this->getFullClassname($className);
 
-        return new $class();
+        return new $fullClassname();
     }
 
     /**
-     * Persist an entity and flush the Doctrine Entity Manager
+     * Persist an object and flush the Doctrine Object Manager
      *
-     * @param  mixed $entity The entity to persist
-     * @return mixed The persisted entity
+     * @param  mixed $object The object to persist
+     * @return mixed The persisted object
      */
-    protected function persistAndFlush($entity)
+    protected function persistAndFlush($object)
     {
-        $this->em->persist($entity);
-        $this->em->flush();
+        $this->om->persist($object);
+        $this->om->flush();
 
-        return $entity;
+        return $object;
     }
 
     /**
-     * Persist an entity
+     * Persist an object
      *
-     * @param  mixed $entity The entity to persist
-     * @return mixed The persisted entity
+     * @param  mixed $object The object to persist
+     * @return mixed The persisted object
      */
-    public function persist($entity)
+    public function persist($object)
     {
-        $this->em->persist($entity);
+        $this->om->persist($object);
 
-        return $entity;
+        return $object;
     }
 
     /**
-     * flush the Doctrine Entity Manager
+     * flush the Doctrine Object Manager
      *
      */
     public function flush()
     {
-        $this->em->flush();
+        $this->om->flush();
     }
 
     /**
     * Toggle state and save
-    * @param  mixed $entity The entity to persist
+    * @param  mixed $object The object to persist
     */
-    public function toggleState($entity)
+    public function toggleState($object)
     {
-        if (!method_exists($entity, 'getState')) {
+        if (!method_exists($object, 'getState')) {
             throw new NoSuchPropertyException(
                 sprintf('The method %s does not exist for class %s',
                     'getState',
-                    get_class($entity)
+                    get_class($object)
                     )
             );
         }
-        $entity->setState(!$entity->getState());
-        $this->save($entity);
+        $object->setState(!$object->getState());
+        $this->save($object);
 
-        return $entity->getState();
+        return $object->getState();
     }
 
     /**
-    * Tells if an entity is new
+    * Tells if an object is new
     *
-    * @param   mixed   $entity The entity to test
+    * @param   mixed   $object The object to test
     * @return  boolean TRUE if new, FALSE otherwise
     */
-    public function isNew($entity)
+    public function isNew($object)
     {
-     $state = $this->em->getUnitOfWork()->getEntityState($entity);
+     $state = $this->om->getUnitOfWork()->getObjectState($object);
 
      return $state === \Doctrine\ORM\UnitOfWork::STATE_NEW;
  }
 
     /**
-     * Retrieve an entity matching the criteria in the array
+     * Retrieve an object matching the criteria in the array
      * @param  Array  $criteria criteria to be matched
-     * @return Entity
+     * @return Object
      */
-    public function getByField($criteria)
+    public function getByField($criteria, $onlyActive = true)
     {
+        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
+            $criteria = array_merge($criteria, array('state' => true));
+        }
         return $this->repository->findOneBy($criteria);
     }
 
     /**
-     * Retrieve an entity matching the criteria in the array
+     * Retrieve an object matching the criteria in the array
      *
      * @param  Array $criteria criteria to be matched
      * @return Array
      */
-    public function getAllByField($criteria)
+    public function getAllByField($criteria, $onlyActive = true)
     {
+        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
+            $criteria = array_merge($criteria, array('state' => true));
+        }
         return $this->repository->findBy($criteria);
     }
 
     /**
-     * Check if an object is an instance of the managed entity
+     * Check if an object is an instance of the managed object
      *
-     * @param  mixed   $entity The object to test
+     * @param  mixed   $object The object to test
+     * @param  string  $className The className to check (null = default managed class)
      * @return boolean True if the instance is a match, false otherwise
      */
-    public function checkInstance($entity)
+    public function checkInstance($object, $className = null)
     {
-        $class = sprintf('%s\\Entity\\', $this->bundleNamespace, $this->entityName);
-        return is_a($entity, $class);
+        $fullClassname = $this->getFullClassname($className);
+
+        return is_a($object, $fullClassname);
     }
 
     /**
-     * Switch the state of an entity
+     * Gets the scalar value of a field, for a specific object
      *
-     * @param  mixed   $entity The entity on withc the switch will be applied
-     * @return integer The new state
-     */
-    public function switchState($entity)
-    {
-        if (is_string($entity) || is_integer($entity)) {
-            $entity = $this->find($entity);
-        }
-
-        if ($this->checkInstance($entity)) {
-            $entity->setState($entity->getState() === 1 ? 0 : 1);
-            $entity = $this->save($entity);
-
-            return $entity->getState();
-        }
-
-        throw new \Exception('Entity is not an instance of '.$this->entityName);
-    }
-
-    protected function slug($str)
-    {
-        $str = strtolower(trim($str));
-        $str = preg_replace('/[^a-z0-9-]/', '-', $str);
-        $str = preg_replace('/-+/', "-", $str);
-
-        return $str;
-    }
-
-    /**
-     * Gets the scalar value of a field, for a specific entity
-     *
-     * @param  integer $entityId  The target entity Id
+     * @param  integer $objectId  The target object Id
      * @param  string  $fieldName The target field
      * @return misc    The scalar result
      */
-    public function getSingleScalarField($entityId, $fieldName)
+    public function getSingleScalarField($objectId, $fieldName)
     {
         $query = $this->repository->createQueryBuilder('e')
                       ->select('e.'.$fieldName)
                       ->where('e.id = :id')
-                      ->setParameter('id', $entityId)
+                      ->setParameter('id', $objectId)
                       ->getQuery();
 
         return $query->getSingleScalarResult();
