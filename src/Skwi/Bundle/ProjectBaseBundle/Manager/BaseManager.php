@@ -161,7 +161,7 @@ abstract class BaseManager
     public function delete($object)
     {
         $this->om->remove($object);
-        $this->om->flush();
+        $this->flush();
 
         return 1;
     }
@@ -277,8 +277,8 @@ abstract class BaseManager
      */
     protected function persistAndFlush($object)
     {
-        $this->om->persist($object);
-        $this->om->flush();
+        $this->persist($object);
+        $this->flush();
 
         return $object;
     }
