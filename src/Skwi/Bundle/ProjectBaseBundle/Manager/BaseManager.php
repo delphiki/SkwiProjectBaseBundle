@@ -282,7 +282,6 @@ abstract class BaseManager
     {
         //TODO : max per page in config
         $qb = $this->createBaseQueryBuilder($onlyActive);
-
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
         $pager->setCurrentPage($page);
 
@@ -418,13 +417,19 @@ abstract class BaseManager
      * @param  Array $criteria criteria to be matched
      * @return PagerFanta
      */
-    public function getAllByFieldPaginated($criteria, $onlyActive = true)
+    public function getAllByFieldPaginated($criteria, $page, $maxPerPage = null, $onlyActive = true)
     {
-        if ($onlyActive && $this->getStateProperty()) {
-            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
+        $qb = $this->createBaseQueryBuilder($onlyActive);
+
+        foreach ($criteria as $key => $value) {
+            $qb->andWhere(sprintf('o.%1$s = :%1$s', $key))
+               ->setParameter($key, $value);
         }
 
-        return $this->repository->findBy($criteria);
+        $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
+        $pager->setCurrentPage($page);
+
+        return $pager;
     }
 
     /**
