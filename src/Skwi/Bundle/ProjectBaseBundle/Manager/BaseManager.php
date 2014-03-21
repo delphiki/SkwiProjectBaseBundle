@@ -41,6 +41,16 @@ abstract class BaseManager
     protected $repository;
 
     /**
+     * @var string $stateProperty
+     */
+    protected $stateProperty;
+
+    /**
+     * @var integer $stateActiveValue
+     */
+    protected $stateActiveValue;
+
+    /**
      * Number of max item on paginated pages
      * @var integer
      */
@@ -107,6 +117,17 @@ abstract class BaseManager
     public function setBundleNamespace($bundleNamespace)
     {
         $this->bundleNamespace = $bundleNamespace;
+    }
+
+    /**
+     * Set the name of the property defining entity state, and its ctive value
+     * @param string $stateProperty     The name of the property
+     * @param string $stateActiveValue     The value for state "active"
+     */
+    public function setStateProperty($stateProperty, $stateActiveValue = null)
+    {
+        $this->stateProperty = $stateProperty;
+        $this->stateActiveValue = $stateActiveValue;
     }
 
     /**
@@ -202,11 +223,17 @@ abstract class BaseManager
     {
         $qb = $this->repository->createQueryBuilder('o');
 
-        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
+        $activeField = $this->stateProperty && method_exists($this->createNew(), 'get'.ucwords($this->stateProperty)) ? $this->stateProperty :
+            method_exists($this->createNew(), 'getState')  ? 'state'  :
+            method_exists($this->createNew(), 'getStatus') ? 'status' :
+            null;
+        $activeValue = $this->stateActiveValue !== null ? $this->stateActiveValue : true;
+
+        if ($onlyActive && $activeField) {
             if($this->getManagedType() == 'Document'){
-                $qb->field('state')->equals(true);
+                $qb->field($activeField)->equals($activeValue);
             } else {
-                $qb->andWhere('o.state = TRUE');
+                $qb->andWhere(sprintf('o.%s = %s', $activeField, $activeValue));
             }
         }
 
@@ -221,9 +248,9 @@ abstract class BaseManager
     public function findAll($onlyActive = true)
     {
         if($this->getManagedType() == 'Document'){
-            $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
+            return $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
         } else {
-            $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
+            return $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
         }
     }
 
