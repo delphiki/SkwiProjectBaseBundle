@@ -3,7 +3,6 @@
 namespace Skwi\Bundle\ProjectBaseBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
@@ -239,7 +238,7 @@ abstract class BaseManager
     /**
      * Base query filtering activated objects
      * @param  boolean $onlyActive Set to FALSE to retrun also inactive objects
-     * @return QueryBuilder        A doctrine query builder
+     * @return Doctrine\ORM\QueryBuilder        A doctrine query builder
      */
     private function createBaseQueryBuilder($onlyActive = true)
     {
@@ -478,7 +477,7 @@ abstract class BaseManager
      * @param QueryBuilder $queryBuilder The query builder to paginate
      * @return PagerFanta The pager
      */
-    public function getPagerFromQueryBuilder(QueryBuilder $queryBuilder, $maxPerPage = null)
+    public function getPagerFromQueryBuilder(Doctrine\ORM\QueryBuilder $queryBuilder, $maxPerPage = null)
     {
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
