@@ -131,6 +131,28 @@ abstract class BaseManager
     }
 
     /**
+     * Gets the name of the state property
+     * @return string The name of the property (NULL if no state property)
+     */
+    public function getStateProperty()
+    {
+        $object = $this->createNew();
+        return $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)) ? $this->stateProperty :
+            method_exists($object, 'getState')  ? 'state'  :
+            method_exists($object, 'getStatus') ? 'status' :
+            null;
+    }
+
+    /**
+     * Gets the active value for the state property
+     * @return mixed The active value (default : TRUE)
+     */
+    public function getStateActiveValue()
+    {
+        return $this->stateActiveValue !== null ? $this->stateActiveValue : true;
+    }
+
+    /**
      * Decode ObjectName according to the Bundle, and store linked properties
      *
      * @param  string $objectName     The Bundle coded Object Name
@@ -223,11 +245,8 @@ abstract class BaseManager
     {
         $qb = $this->repository->createQueryBuilder('o');
 
-        $activeField = $this->stateProperty && method_exists($this->createNew(), 'get'.ucwords($this->stateProperty)) ? $this->stateProperty :
-            method_exists($this->createNew(), 'getState')  ? 'state'  :
-            method_exists($this->createNew(), 'getStatus') ? 'status' :
-            null;
-        $activeValue = $this->stateActiveValue !== null ? $this->stateActiveValue : true;
+        $activeField = $this->getStateProperty();
+        $activeValue = $this->getStateActiveValue();
 
         if ($onlyActive && $activeField) {
             if($this->getManagedType() == 'Document'){
@@ -338,18 +357,19 @@ abstract class BaseManager
     */
     public function toggleState($object)
     {
-        if (!method_exists($object, 'getState')) {
+        $stateProperty = $this->getStateProperty();
+        if(!$stateProperty){
             throw new NoSuchPropertyException(
-                sprintf('The method %s does not exist for class %s',
-                    'getState',
-                    get_class($object)
-                    )
-            );
+                sprintf('Can find property holding state for class %s', get_class($object)));
         }
-        $object->setState(!$object->getState());
+
+        $setter = 'set'.ucfirst($stateProperty);
+        $getter = 'get'.ucfirst($stateProperty);
+
+        $object->$setter(!$object->$getter());
         $this->save($object);
 
-        return $object->getState();
+        return $object->$getter();
     }
 
     /**
@@ -360,9 +380,9 @@ abstract class BaseManager
     */
     public function isNew($object)
     {
-     $state = $this->om->getUnitOfWork()->getObjectState($object);
+     $UnitOfWorkObjectState = $this->om->getUnitOfWork()->getObjectState($object);
 
-     return $state === \Doctrine\ORM\UnitOfWork::STATE_NEW;
+     return $UnitOfWorkObjectState === \Doctrine\ORM\UnitOfWork::STATE_NEW;
  }
 
     /**
@@ -372,23 +392,38 @@ abstract class BaseManager
      */
     public function getByField($criteria, $onlyActive = true)
     {
-        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
-            $criteria = array_merge($criteria, array('state' => true));
+        if ($onlyActive && $this->getStateProperty()) {
+            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
         }
         return $this->repository->findOneBy($criteria);
     }
 
     /**
-     * Retrieve an object matching the criteria in the array
+     * Retrieve objects matching the criteria in the array
      *
      * @param  Array $criteria criteria to be matched
      * @return Array
      */
     public function getAllByField($criteria, $onlyActive = true)
     {
-        if ($onlyActive && method_exists($this->createNew(), 'getState')) {
-            $criteria = array_merge($criteria, array('state' => true));
+        if ($onlyActive && $this->getStateProperty()) {
+            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
         }
+        return $this->repository->findBy($criteria);
+    }
+
+    /**
+     * Retrieve paginated object list matching the criteria in the array
+     *
+     * @param  Array $criteria criteria to be matched
+     * @return PagerFanta
+     */
+    public function getAllByFieldPaginated($criteria, $onlyActive = true)
+    {
+        if ($onlyActive && $this->getStateProperty()) {
+            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
+        }
+
         return $this->repository->findBy($criteria);
     }
 
