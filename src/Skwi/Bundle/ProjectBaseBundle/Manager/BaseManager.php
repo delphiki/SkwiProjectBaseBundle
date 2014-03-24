@@ -477,7 +477,7 @@ abstract class BaseManager
      * @param QueryBuilder $queryBuilder The query builder to paginate
      * @return PagerFanta The pager
      */
-    public function getPagerFromQueryBuilder(Doctrine\ORM\QueryBuilder $queryBuilder, $maxPerPage = null)
+    public function getPagerFromQueryBuilder(\Doctrine\ORM\QueryBuilder $queryBuilder, $maxPerPage = null)
     {
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
