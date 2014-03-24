@@ -241,7 +241,7 @@ abstract class BaseManager
      * @param  boolean $onlyActive Set to FALSE to retrun also inactive objects
      * @return QueryBuilder        A doctrine query builder
      */
-    private function createBaseQueryBuilder($onlyActive = true)
+    protected function createBaseQueryBuilder($onlyActive = true)
     {
         $qb = $this->repository->createQueryBuilder('o');
 

@@ -1,0 +1,32 @@
+{% extends 'SkwiProjectBaseBundle:Form:fields.html.twig' %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    <div class="col-md-10">
+        {{ parent() }}
+    </div>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+{% spaceless %}
+    {% set label_attr = label_attr|merge({'class': 'col-md-2'}) %}
+    {{ parent() }}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block checkbox_widget %}
+{% spaceless %}
+    <div class="col-md-10">
+        {{ parent() }}
+    </div>
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block choice_widget %}
+{% spaceless %}
+    <div class="col-md-10">
+        {{ parent() }}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget %}

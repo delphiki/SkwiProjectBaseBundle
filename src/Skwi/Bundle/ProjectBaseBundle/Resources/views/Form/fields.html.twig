@@ -1,0 +1,82 @@
+{# ROW #}
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group {{ form.vars.errors|length > 0 ? 'has-error has-feedback' }}">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{# LABEL #}
+{% block form_label %}
+{% spaceless %}
+    {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label'}) %}
+    {% if label is not sameas(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{# ERRORS #}
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+            <p class="text-danger text-right">{{ error.message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{# WIDGET #}
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {% set type = type|default('text') %}
+    <input type="{{ type }}" {{ block('widget_attributes') }}  {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{# WIDGET - CHECKBOX #}
+{% block checkbox_widget %}
+{% spaceless %}
+    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" {% if value is defined %} value="{{ child.vars.value }}"{% endif %}{% if child.vars.checked %} checked="checked"{% endif %} />
+                {{ child.vars.label }}
+            </label>
+        </div>
+    {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+{# WIDGET - CHOICE #}
+{% block choice_widget %}
+{% spaceless %}
+    {% if expanded %}
+        {{ block('choice_widget_expanded') }}
+    {% else %}
+        {{ block('choice_widget_collapsed') }}
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget %}
