@@ -74,6 +74,61 @@
 {% endspaceless %}
 {% endblock choice_widget %}
 
+{% block choice_widget_collapsed %}
+{% spaceless %}
+    {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' form-control')|trim }) %}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none %}
+            <option {% if required %} disabled="disabled"{% if value is empty %} selected="selected"{% endif %}{% else %} value=""{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('choice_widget_options') }}
+            {% if choices|length > 0 and separator is not none %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+        {% set options = choices %}
+        {{ block('choice_widget_options') }}
+    </select>
+{% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        {% if multiple is defined and multiple %}
+            {{ block('choice_widget_checkbox_row') }}
+        {% else %}
+            {{ block('choice_widget_radio_row') }}
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+{# WIDGET - CHOICE - RADIO / CHECKBOX #}
+{% block choice_widget_checkbox_row %}
+{% spaceless %}
+    <div>
+        <label class="control-label" for="{{ child.vars.id }}">
+            <input type="checkbox" id="{{ child.vars.id }}" name="{{ child.vars.full_name }}" value="{{ child.vars.value }}" {{ child.vars.checked ? 'checked="checked"' : null }} {{ child.vars.disabled ? 'disabled="disabled"' : null }} >&nbsp;{{ child.vars.label }}
+        </label>
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_checkbox_row %}
+
+{% block choice_widget_radio_row %}
+{% spaceless %}
+    <div>
+        <label class="control-label" for="{{ child.vars.id }}">
+            <input type="radio" id="{{ child.vars.id }}" name="{{ child.vars.full_name }}" value="{{ child.vars.value }}" {{ child.vars.checked ? 'checked="checked"' : null }} {{ child.vars.disabled ? 'disabled="disabled"' : null }} >&nbsp;{{ child.vars.label }}
+        </label>
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_radio_row %}
+
 {# BUTTON #}
 {% block button_widget %}
 {% spaceless %}
@@ -84,3 +139,4 @@
     <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
 {% endspaceless %}
 {% endblock button_widget %}
+
