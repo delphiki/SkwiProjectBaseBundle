@@ -2,10 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block head %}{% endblock head %}
         {% block stylesheets %}
            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+           <!--[if lt IE 9]>
+                <link rel="stylesheet" href="{{ asset('bundles/skwiprojectbase/css/bootstrap.min.css') }}">
+                <script src="{{ asset('bundles/skwiprojectbase/js/html5shiv.3.7.0.js') }}"></script>
+                <script src="{{ asset('bundles/skwiprojectbase/js/respond.1.4.2.js') }}"></script>
+                <script src="{{ asset('bundles/skwiprojectbase/js/bootstrap.3.1.1.js') }}"></script>
+            <![endif]-->
         {% endblock stylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
