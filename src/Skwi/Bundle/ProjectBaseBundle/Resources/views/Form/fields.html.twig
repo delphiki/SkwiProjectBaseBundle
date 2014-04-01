@@ -55,20 +55,13 @@
 {% endspaceless %}
 {% endblock checkbox_widget %}
 
-{% block choice_widget_expanded %}
+{# WIDGET - TEXTAREA #}
+{% block textarea_widget %}
 {% spaceless %}
-    <div {{ block('widget_container_attributes') }}>
-    {% for child in form %}
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" {% if value is defined %} value="{{ child.vars.value }}"{% endif %}{% if child.vars.checked %} checked="checked"{% endif %} />
-                {{ child.vars.label }}
-            </label>
-        </div>
-    {% endfor %}
-    </div>
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
-{% endblock choice_widget_expanded %}
+{% endblock textarea_widget %}
 
 {# WIDGET - CHOICE #}
 {% block choice_widget %}
