@@ -432,6 +432,31 @@ abstract class BaseManager
     }
 
     /**
+     * Retrieve paginated and sorted object list matching the criteria in the array
+     *
+     * @param  Array $criteria criteria to be matched
+     * @return PagerFanta
+     */
+    public function getAllByFieldPaginatedAndSorted($criteria, $page, $maxPerPage = null, $sortField = null, $sortDirection = 'ASC', $onlyActive = true)
+    {
+        $qb = $this->createBaseQueryBuilder($onlyActive);
+
+        foreach ($criteria as $key => $value) {
+            $qb->andWhere(sprintf('o.%1$s = :%1$s', $key))
+               ->setParameter($key, $value);
+        }
+
+        if($sortField) {
+            $qb->orderBy(sprintf('o.%s', $sortField), $sortDirection);
+        }
+
+        $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
+        $pager->setCurrentPage($page);
+
+        return $pager;
+    }
+
+    /**
      * Check if an object is an instance of the managed object
      *
      * @param  mixed   $object The object to test
