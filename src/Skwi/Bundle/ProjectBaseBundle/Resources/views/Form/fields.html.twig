@@ -48,6 +48,16 @@
 {% endspaceless %}
 {% endblock form_widget_simple %}
 
+{# WIDGET - IMAGE #}
+{% block image_widget %}
+{% spaceless %}
+    {{ block('form_widget') }}
+    {% if preview and image_url is not null %}
+        <img src="{{ asset(image_url) }}"/>
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
 {# WIDGET - CHECKBOX #}
 {% block checkbox_widget %}
 {% spaceless %}
