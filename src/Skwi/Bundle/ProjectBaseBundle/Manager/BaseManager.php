@@ -335,6 +335,9 @@ abstract class BaseManager
      */
     public function persist($object)
     {
+        if(method_exists($object, 'setUpdatedAt')){
+            $object->setUpdatedAt(new \Datetime());
+        }
         $this->om->persist($object);
 
         return $object;
