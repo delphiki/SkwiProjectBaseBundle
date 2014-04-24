@@ -138,8 +138,8 @@ abstract class BaseManager
         $object = $this->createNew();
         return $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)) ? $this->stateProperty :
             method_exists($object, 'getState')  ? 'state'  :
-            method_exists($object, 'getStatus') ? 'status' :
-            null;
+            (method_exists($object, 'getStatus') ? 'status' :
+            null);
     }
 
     /**
