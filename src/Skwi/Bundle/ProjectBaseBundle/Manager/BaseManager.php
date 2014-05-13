@@ -136,10 +136,18 @@ abstract class BaseManager
     public function getStateProperty()
     {
         $object = $this->createNew();
-        return $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)) ? $this->stateProperty :
-            method_exists($object, 'getState')  ? 'state'  :
-            (method_exists($object, 'getStatus') ? 'status' :
-            null);
+
+        switch (true)
+        {
+            case $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)):
+                return $this->stateProperty;
+            case method_exists($object, 'getState') :
+                return 'state';
+            case method_exists($object, 'getStatus') :
+                return 'status';
+            default :
+                return null;
+        }
     }
 
     /**
