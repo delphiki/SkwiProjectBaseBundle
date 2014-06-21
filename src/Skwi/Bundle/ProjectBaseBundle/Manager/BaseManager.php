@@ -68,7 +68,7 @@ abstract class BaseManager
     protected function getManagedType()
     {
         $type = substr(get_class($this->om), strrpos(get_class($this->om), '\\') + 1);
-        $type = str_replace('Manager','', $type);
+        $type = str_replace('Manager', '', $type);
 
         return $type;
     }
@@ -141,11 +141,11 @@ abstract class BaseManager
         {
             case $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)):
                 return $this->stateProperty;
-            case method_exists($object, 'getState') :
+            case method_exists($object, 'getState'):
                 return 'state';
-            case method_exists($object, 'getStatus') :
+            case method_exists($object, 'getStatus'):
                 return 'status';
-            default :
+            default:
                 return null;
         }
     }
@@ -172,7 +172,8 @@ abstract class BaseManager
         foreach (array($objectProperty, $repoProperty) as $property) {
             if ($property && !property_exists($this, $property)) {
                 throw new NoSuchPropertyException(
-                    sprintf('The property %s does not exist for class %s',
+                    sprintf(
+                        'The property %s does not exist for class %s',
                         $property,
                         get_class($object)
                     )
@@ -256,7 +257,7 @@ abstract class BaseManager
         $activeValue = $this->getStateActiveValue();
 
         if ($onlyActive && $activeField) {
-            if($this->getManagedType() == 'Document'){
+            if ($this->getManagedType() === 'Document') {
                 $qb->field($activeField)->equals($activeValue);
             } else {
                 $qb->andWhere(sprintf('o.%s = %s', $activeField, $activeValue));
@@ -273,7 +274,7 @@ abstract class BaseManager
      */
     public function findAll($onlyActive = true)
     {
-        if($this->getManagedType() == 'Document'){
+        if ($this->getManagedType() === 'Document') {
             return $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
         } else {
             return $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
@@ -302,10 +303,12 @@ abstract class BaseManager
      */
     protected function getFullClassname($className = null)
     {
-        return sprintf('%s\\%s\\%s',
+        return sprintf(
+            '%s\\%s\\%s',
             $this->bundleNamespace,
             $this->getManagedType(),
-            ($className ? $className : $this->objectName));
+            ($className ? $className : $this->objectName)
+        );
     }
 
     /**
@@ -343,7 +346,7 @@ abstract class BaseManager
      */
     public function persist($object)
     {
-        if(method_exists($object, 'setUpdatedAt')){
+        if (method_exists($object, 'setUpdatedAt')) {
             $object->setUpdatedAt(new \Datetime());
         }
         $this->om->persist($object);
@@ -367,9 +370,13 @@ abstract class BaseManager
     public function toggleState($object)
     {
         $stateProperty = $this->getStateProperty();
-        if(!$stateProperty){
+        if (!$stateProperty) {
             throw new NoSuchPropertyException(
-                sprintf('Can find property holding state for class %s', get_class($object)));
+                sprintf(
+                    'Can find property holding state for class %s',
+                    get_class($object)
+                )
+            );
         }
 
         $setter = 'set'.ucfirst($stateProperty);
@@ -389,10 +396,10 @@ abstract class BaseManager
     */
     public function isNew($object)
     {
-     $UnitOfWorkObjectState = $this->om->getUnitOfWork()->getObjectState($object);
+        $UnitOfWorkObjectState = $this->om->getUnitOfWork()->getObjectState($object);
 
-     return $UnitOfWorkObjectState === \Doctrine\ORM\UnitOfWork::STATE_NEW;
- }
+        return $UnitOfWorkObjectState === \Doctrine\ORM\UnitOfWork::STATE_NEW;
+    }
 
     /**
      * Retrieve an object matching the criteria in the array
@@ -458,7 +465,7 @@ abstract class BaseManager
                ->setParameter($key, $value);
         }
 
-        if($sortField) {
+        if ($sortField) {
             $qb->orderBy(sprintf('o.%s', $sortField), $sortDirection);
         }
 
