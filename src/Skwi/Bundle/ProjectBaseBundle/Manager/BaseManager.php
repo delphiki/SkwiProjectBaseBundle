@@ -402,7 +402,7 @@ abstract class BaseManager
     public function getByField($criteria, $onlyActive = true)
     {
         if ($onlyActive && $this->getStateProperty()) {
-            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
+            $criteria = array_merge($criteria, array($this->getStateProperty() => 1));
         }
         return $this->repository->findOneBy($criteria);
     }
@@ -416,8 +416,9 @@ abstract class BaseManager
     public function getAllByField($criteria, $onlyActive = true)
     {
         if ($onlyActive && $this->getStateProperty()) {
-            $criteria = array_merge($criteria, array($this->getStateProperty() => true));
+            $criteria = array_merge($criteria, array($this->getStateProperty() => 1));
         }
+
         return $this->repository->findBy($criteria);
     }
 
