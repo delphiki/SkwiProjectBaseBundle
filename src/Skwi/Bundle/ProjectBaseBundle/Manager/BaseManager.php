@@ -274,7 +274,7 @@ abstract class BaseManager
      */
     public function findAll($onlyActive = true)
     {
-        if ($this->getManagedType() === 'Document') {
+        if ($this->getManagedType() == 'Document') {
             return $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
         } else {
             return $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
@@ -282,13 +282,28 @@ abstract class BaseManager
     }
 
     /**
-     * Retruns all the objects
+     * Retruns all the objects in a range between $offset and ($offset + $limit)
      *
      * @return Doctrine Collection all the objects
      */
+    public function findAllInRange($offset, $limit, $onlyActive = true)
+    {
+        if ($this->getManagedType() == 'Document') {
+            return $this->createBaseQueryBuilder($onlyActive)->limit($limit)->skip($offset)->getQuery()->execute();
+        } else {
+            return $this->createBaseQueryBuilder($onlyActive)->setMaxResults($limit)->setFirstResult($offset)->getQuery()->getResult();
+        }
+    }
+
+    /**
+     * Retruns all the objects, paginated with PagerFanta
+     *
+     * @return PagerFanta Pager
+     */
     public function findAllPaginated($page, $maxPerPage = null, $onlyActive = true)
     {
-        //TODO : max per page in config
+        $maxPerPage = $maxPerPage > 0 ? $maxPerPage : $this->pagerMaxPerPage;
+
         $qb = $this->createBaseQueryBuilder($onlyActive);
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
         $pager->setCurrentPage($page);
@@ -530,5 +545,23 @@ abstract class BaseManager
         $pagerfanta->setMaxPerPage($maxPerPage);
 
         return $pagerfanta;
+    }
+
+    /**
+     * Creates a new Instance of the specific Object and load data form an array
+     * The object should have a "loadFromArray" method
+     *
+     * @param $dataArray The data to load within the object
+     * @param $className A specific object class name. If null, managed Object Will be used
+     * @return mixed The created Object
+     **/
+    public function loadFromArray($dataArray, $className = null)
+    {
+        $object = $this->createNew($className);
+        if (method_exists($object, 'loadFromArray')) {
+            $object->loadFromArray($dataArray);
+        }
+
+        return $object;
     }
 }
