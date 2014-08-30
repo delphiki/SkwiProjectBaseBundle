@@ -175,7 +175,7 @@ abstract class BaseManager
                     sprintf(
                         'The property %s does not exist for class %s',
                         $property,
-                        get_class($object)
+                        get_class($this)
                     )
                 );
             }
