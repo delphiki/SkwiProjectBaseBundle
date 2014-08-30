@@ -329,14 +329,22 @@ abstract class BaseManager
     /**
      * Creates a new Instance of the specific Object
      *
-     * @param $className A specific object class name. If null, managed Object Will be used
+     * @param string $className  A specific object class name. If null, managed Object Will be used
+     * @param array  $parameters Parameters required for object instanciation
      * @return mixed The created Object
      **/
-    public function createNew($className = null)
+    public function createNew($className = null, array $parameters = array())
     {
         $fullClassname = $this->getFullClassname($className);
+        if (empty($parameters)) {
+            return new $fullClassname();
+        }
 
-        return new $fullClassname();
+        $constructorParameters = implode(', ', array_map(function($key) {
+            return sprintf('$parameters[\'%s\']', $key);
+        }, array_keys($parameters)));
+
+        return eval("return new $fullClassname($constructorParameters);");
     }
 
     /**
@@ -551,13 +559,14 @@ abstract class BaseManager
      * Creates a new Instance of the specific Object and load data form an array
      * The object should have a "loadFromArray" method
      *
-     * @param $dataArray The data to load within the object
-     * @param $className A specific object class name. If null, managed Object Will be used
+     * @param array  $dataArray  The data to load within the object
+     * @param string $className  A specific object class name. If null, managed Object Will be used
+     * @param array  $parameters Parameters required by the "$className" object
      * @return mixed The created Object
      **/
-    public function loadFromArray($dataArray, $className = null)
+    public function loadFromArray($dataArray, $className = null, array $parameters = array())
     {
-        $object = $this->createNew($className);
+        $object = $this->createNew($className, $parameters);
         if (method_exists($object, 'loadFromArray')) {
             $object->loadFromArray($dataArray);
         }
