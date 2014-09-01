@@ -340,11 +340,8 @@ abstract class BaseManager
             return new $fullClassname();
         }
 
-        $constructorParameters = implode(', ', array_map(function($key) {
-            return sprintf('$parameters[\'%s\']', $key);
-        }, array_keys($parameters)));
-
-        return eval("return new $fullClassname($constructorParameters);");
+        $class = new \ReflectionClass($fullClassname);
+        return $class->newInstanceArgs($parameters);
     }
 
     /**
