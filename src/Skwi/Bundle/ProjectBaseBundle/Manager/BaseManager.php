@@ -162,9 +162,10 @@ abstract class BaseManager
     /**
      * Decode ObjectName according to the Bundle, and store linked properties
      *
-     * @param  string $objectName     The Bundle coded Object Name
-     * @param  string $objectProperty The property where the name will be stored
-     * @param  string $repoProperty   The property where the related repository will be stored
+     * @param  string $objectName      The Bundle coded Object Name
+     * @param  string $objectProperty  The property where the name will be stored
+     * @param  string $repoProperty    The property where the related repository will be stored
+     * @throws NoSuchPropertyException When the object or repo property does not exist
      * @return void
      */
     protected function decodeObjectName($objectName, $objectProperty = null, $repoProperty = null)
@@ -175,7 +176,7 @@ abstract class BaseManager
                     sprintf(
                         'The property %s does not exist for class %s',
                         $property,
-                        get_class($object)
+                        get_class($this)
                     )
                 );
             }
@@ -329,7 +330,7 @@ abstract class BaseManager
     /**
      * Creates a new Instance of the specific Object
      *
-     * @param $className A specific object class name. If null, managed Object Will be used
+     * @param string $className A specific object class name. If null, managed Object Will be used
      * @return mixed The created Object
      **/
     public function createNew($className = null)
