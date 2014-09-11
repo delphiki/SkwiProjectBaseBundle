@@ -3,7 +3,6 @@
 namespace Skwi\Bundle\ProjectBaseBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 
@@ -387,7 +386,7 @@ abstract class BaseManager
     {
         $stateProperty = $this->getStateProperty();
         if (!$stateProperty) {
-            throw new NoSuchPropertyException(
+            throw new \RuntimeException(
                 sprintf(
                     'Can find property holding state for class %s',
                     get_class($object)
