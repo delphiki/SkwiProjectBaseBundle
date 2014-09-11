@@ -28,6 +28,10 @@ class BaseManager extends Units\Test
                         ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject')
                     ->object($testedClass->createNew('OtherFakeObject'))
                         ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject')
+                    ->exception(function() use ($testedClass) {
+                        $testedClass->createNew('UnknowClass');
+                    })
+                        ->isInstanceOf('\RuntimeException')
                 ->assert('Test createNew with constructor parameter')
                     ->object($instance = $testedClass->createNew('FakeObjectWithConstructor', array('param1' => 'foo')))
                         ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObjectWithConstructor')

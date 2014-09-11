@@ -336,12 +336,19 @@ abstract class BaseManager
     public function createNew($className = null, array $parameters = array())
     {
         $fullClassname = $this->getFullClassname($className);
-        if (empty($parameters)) {
-            return new $fullClassname();
-        }
 
-        $class = new \ReflectionClass($fullClassname);
-        return $class->newInstanceArgs($parameters);
+        try {
+            $class = new \ReflectionClass($fullClassname);
+
+            $constructor = $class->getConstructor();
+            if (null === $constructor) {
+                return new $fullClassname();
+            }
+
+            return $class->newInstanceArgs($parameters);
+        } catch(\ReflectionException $e) {
+            throw new \RuntimeException($e->getMessage(), $e->getCode());
+        }
     }
 
     /**
