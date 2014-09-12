@@ -134,15 +134,15 @@ abstract class BaseManager
      */
     public function getStateProperty()
     {
-        $object = $this->createNew();
+        $reflectedClass = new \ReflectionClass($this->getFullClassname());
 
         switch (true)
         {
-            case $this->stateProperty && method_exists($object, 'get'.ucwords($this->stateProperty)):
+            case $this->stateProperty && $reflectedClass->hasMethod('get'.ucwords($this->stateProperty)):
                 return $this->stateProperty;
-            case method_exists($object, 'getState'):
+            case $reflectedClass->hasMethod('getState'):
                 return 'state';
-            case method_exists($object, 'getStatus'):
+            case $reflectedClass->hasMethod('getStatus'):
                 return 'status';
             default:
                 return null;
