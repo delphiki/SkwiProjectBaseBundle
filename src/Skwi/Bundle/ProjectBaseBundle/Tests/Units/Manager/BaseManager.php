@@ -23,10 +23,28 @@ class BaseManager extends Units\Test
         $this
             ->if($testedClass = $this->createTestedClass())
             ->then
-                ->object($testedClass->createNew())
-                    ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject')
-                ->object($testedClass->createNew('OtherFakeObject'))
-                    ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject')
+                ->assert('Test createNew without constructor parameters')
+                    ->object($testedClass->createNew())
+                        ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject')
+                    ->object($testedClass->createNew('OtherFakeObject'))
+                        ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject')
+                    ->exception(function() use ($testedClass) {
+                        $testedClass->createNew('UnknowClass');
+                    })
+                        ->isInstanceOf('\RuntimeException')
+                ->assert('Test createNew with constructor parameter')
+                    ->object($instance = $testedClass->createNew('FakeObjectWithConstructor', array('param1' => 'foo')))
+                        ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObjectWithConstructor')
+                    ->string($instance->p1)
+                        ->isEqualTo('foo')
+                    ->string($instance->p2)
+                        ->isEqualTo('bar')
+                    ->object($instance = $testedClass->createNew('FakeObjectWithConstructor', array('param1' => 'foo', 'param2' => 'atoum')))
+                        ->isInstanceOf('\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObjectWithConstructor')
+                    ->string($instance->p1)
+                        ->isEqualTo('foo')
+                    ->string($instance->p2)
+                        ->isEqualTo('atoum')
         ;
     }
 
@@ -239,4 +257,3 @@ class BaseManager extends Units\Test
         return $testedClass;
     }
 }
- 

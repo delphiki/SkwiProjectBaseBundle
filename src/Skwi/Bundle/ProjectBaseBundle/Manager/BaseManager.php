@@ -329,14 +329,26 @@ abstract class BaseManager
     /**
      * Creates a new Instance of the specific Object
      *
-     * @param string $className A specific object class name. If null, managed Object Will be used
+     * @param string $className  A specific object class name. If null, managed Object Will be used
+     * @param array  $parameters Parameters required for object instanciation
      * @return mixed The created Object
      **/
-    public function createNew($className = null)
+    public function createNew($className = null, array $parameters = array())
     {
         $fullClassname = $this->getFullClassname($className);
 
-        return new $fullClassname();
+        try {
+            $class = new \ReflectionClass($fullClassname);
+
+            $constructor = $class->getConstructor();
+            if (null === $constructor) {
+                return new $fullClassname();
+            }
+
+            return $class->newInstanceArgs($parameters);
+        } catch(\ReflectionException $e) {
+            throw new \RuntimeException($e->getMessage(), $e->getCode());
+        }
     }
 
     /**
@@ -551,13 +563,14 @@ abstract class BaseManager
      * Creates a new Instance of the specific Object and load data form an array
      * The object should have a "loadFromArray" method
      *
-     * @param $dataArray The data to load within the object
-     * @param $className A specific object class name. If null, managed Object Will be used
+     * @param array  $dataArray  The data to load within the object
+     * @param string $className  A specific object class name. If null, managed Object Will be used
+     * @param array  $parameters Parameters required by the "$className" object
      * @return mixed The created Object
      **/
-    public function loadFromArray($dataArray, $className = null)
+    public function loadFromArray($dataArray, $className = null, array $parameters = array())
     {
-        $object = $this->createNew($className);
+        $object = $this->createNew($className, $parameters);
         if (method_exists($object, 'loadFromArray')) {
             $object->loadFromArray($dataArray);
         }
