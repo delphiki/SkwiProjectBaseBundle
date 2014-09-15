@@ -22,7 +22,9 @@
         "sensio/generator-bundle": "~2.3",
         "atoum/atoum": "dev-master",
         "atoum/atoum-bundle": "dev-master",
-        "doctrine/orm": ">=2.2.3"
+        "doctrine/orm": ">=2.2.3",
+        "phpdocumentor/phpdocumentor": "2.*",
+        "evert/phpdoc-md" : "~0.0.7"
     },
     "suggest": {
         "doctrine/orm": "If you want to use BaseManager with Doctrine ORM [~2.2,>=2.2.3]",
