@@ -1,0 +1,2771 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.7.0">
+  <partials/>
+  <file path="Composer/ScriptHandler.php" generated-path="Composer.ScriptHandler.html" hash="2f8e2b999d5033e5a84d244037a37d88" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="CommandEvent">\Composer\Script\CommandEvent</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Composer" line="7" package="Default">
+      <extends>\Sensio\Bundle\DistributionBundle\Composer\ScriptHandler</extends>
+      <name>ScriptHandler</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Composer\ScriptHandler</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Composer" line="14" package="Default">
+        <name>clearCacheProd</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Composer\ScriptHandler::clearCacheProd()</full_name>
+        <docblock line="14">
+          <description>Clears the Symfony cache for prod environnement.</description>
+          <long-description></long-description>
+          <tag name="param" line="14" description="&lt;p&gt;CommandEvent A instance&lt;/p&gt;" type="" variable="$event"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$event</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Composer" line="33" package="Default">
+        <name>installAssetsSymlink</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Composer\ScriptHandler::installAssetsSymlink()</full_name>
+        <docblock line="33">
+          <description>Installs the assets under the web root directory, as symlinks.</description>
+          <long-description></long-description>
+          <tag name="param" line="33" description="&lt;p&gt;CommandEvent A instance&lt;/p&gt;" type="" variable="$event"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$event</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class ""</error>
+    </parse_markers>
+    <source>eJzFU1Fr2zAQfvevuEHBSYjdd3dla9NCB4MGsrelFEU+N2ptSejkpmX0v+9kyUta2NjDyvSiWHff3Xffffn4yW5tlmnRIVkhEVYPO7U+73Xd4nrpzD1Kfy4I08vCdNYQupMs6wlh/FyvpFPWh3AndH35iNpzimwFEcTYlQgFHOCTR10TrFeoSZmx1YUi79Sm98roN73WrwpkPzLgczybDTfMYNGicAR+y+Sfu8boZ5BC8ldjHFhnakD9qJzRGjvmVSbcCP9shRMdHGEgDYcTwBkoTV5oiSn5eLhtv2mVBI54vppey8AaZOCxCJ1Zt3ryqlKsPh3gcYBwjowNSIJTIGybqrpDfx2fJglxsk8W1l4ox7kj7HtOcd6CQ0WtXH7Doo/5qoHJB0W3/D5J2On0oHk4KLcG8m+s1ZtKMMnLBCrzKZBFqRqFNQsCMu2lvCeeeicItPEsNm8thPOSp5C7ejIt8zlvQg/hQZxhR8NuyrxcXi1vL6+/HjAOx6Hvnd5P/bIPR72rCp9Q9h6Tvkmo+ajPHPKhQxU7FoU2xU64rrf8m41wOjiCme1V5BeJRIVXHZre5zdJ9dT7wGpfgh3aNpqNvY2egMfGONkON+AMD8sC8t/GuOc5JwVpW6Uf6N2MpyKrs4HPKnb7X/b7lc5i/C6dQ392a8T+hVtTpcGtEfRv3JoUTSt+V7PGFtXYsSiSXZgZkhQWaYttK9zdXpbRnS/ZT65+zOk=</source>
+  </file>
+  <file path="DependencyInjection/Configuration.php" generated-path="DependencyInjection.Configuration.html" hash="82c6a2b0be2430f552860ad79f53dea8" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="TreeBuilder">\Symfony\Component\Config\Definition\Builder\TreeBuilder</namespace-alias>
+    <namespace-alias name="ConfigurationInterface">\Symfony\Component\Config\Definition\ConfigurationInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\DependencyInjection" line="13" package="Default">
+      <extends/>
+      <implements>\Symfony\Component\Config\Definition\ConfigurationInterface</implements>
+      <name>Configuration</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\DependencyInjection\Configuration</full_name>
+      <docblock line="13">
+        <description>This is the class that validates and merges configuration from your app/config files</description>
+        <long-description>To learn more see [http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class](http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class)</long-description>
+        <tag name="package" line="13" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\DependencyInjection" line="18" package="Default">
+        <name>getConfigTreeBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\DependencyInjection\Configuration::getConfigTreeBuilder()</full_name>
+        <docblock line="18">
+          <description>{@inheritDoc}</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyVU8Fu2zAMvfsrCKyA0wCu7suWDW0vvQzD1mMAQ5HpWItEaZK8NCjy76NsL0lbDEgFG5L4yMcnivr0xXe+KEhajF4qhJ/bnV7d9tQYXH0P7heqdCsjTpZ79EgNkto/UIa0o0VR9JHj9rZ1tF/dOesdISVeUas3HNJq0tmTabVpMKweA+K0XlwcPFr6IPPugRKGlvVydjGfFzCHx05H4C91CMrImFcywR9pdCMTRpDUgMWw4aU654I2OAt71weQ3osRg1YbjMw7UDswKAOBdQEhIsLzV6NpC11K/qMQcZR/o5wVjVNC9SHwIZjKbdf8i/VQvSjwKSFFznnTJWs+/MOrCa+OeDWqqIaDHFiDKMYzvagCaOsNWk71CjiWp3gugMdQojzmrFxTh0Gne6cOk1EMs+/XRitoexruFTaYRtKz65pdD64jax5X6QTCZyDcwQv3xckzOJe+uQbZ7TyqWmZgVkZuvNqPHVevueVKDn4bfbTkUS1VxyRc7EnYCYhKGhlyxKzkAum0r8cq17nXy+tqqeMP/N3rgM2Md9zW7+QY3sslREK84nLr4ZBWktxgKC/IvsVAaOpchLrR4f3yPTfPzoWm5rfLhouS+qyOVT7Vnue8+1/UW9vZ1QVMPb+d8zsfu+JQHIq/OexxBg==</source>
+  </file>
+  <file path="DependencyInjection/SkwiProjectBaseExtension.php" generated-path="DependencyInjection.SkwiProjectBaseExtension.html" hash="e0cf82efc523a96b1cc2c8d725841437" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ContainerBuilder">\Symfony\Component\DependencyInjection\ContainerBuilder</namespace-alias>
+    <namespace-alias name="FileLocator">\Symfony\Component\Config\FileLocator</namespace-alias>
+    <namespace-alias name="Extension">\Symfony\Component\HttpKernel\DependencyInjection\Extension</namespace-alias>
+    <namespace-alias name="Loader">\Symfony\Component\DependencyInjection\Loader</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\DependencyInjection" line="15" package="Default">
+      <extends>\Symfony\Component\HttpKernel\DependencyInjection\Extension</extends>
+      <name>SkwiProjectBaseExtension</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\DependencyInjection\SkwiProjectBaseExtension</full_name>
+      <docblock line="15">
+        <description>This is the class that loads and manages your bundle configuration</description>
+        <long-description>To learn more see [http://symfony.com/doc/current/cookbook/bundles/extension.html](http://symfony.com/doc/current/cookbook/bundles/extension.html)</long-description>
+        <tag name="package" line="15" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\DependencyInjection" line="20" package="Default">
+        <name>load</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\DependencyInjection\SkwiProjectBaseExtension::load()</full_name>
+        <docblock line="20">
+          <description>{@inheritDoc}</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$configs</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$container</name>
+          <default></default>
+          <type>\Symfony\Component\DependencyInjection\ContainerBuilder</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="20" code="PPC:ERR-50015">Argument $configs is missing from the Docblock of load()</error>
+      <error line="20" code="PPC:ERR-50015">Argument $container is missing from the Docblock of load()</error>
+    </parse_markers>
+    <source>eJytVF1v0zAUfc+vuA+V0lVb/M6goG5DTAypGjwg0SpynbvF1LEj26Gtpv53buzRJdmGgGElSnK/zrk+13n9ti7rJNG8QldzgfB5vZGLWaMLhYu5Nd9R+Bl3eG85xxp1gVrsLnXrkkafJknjKG9X3Ri9W5yZqjYatX8qlrzac6nRzhqpCrSnz+RS3I28XbyXCq+M4N48G/nB+/ojWo3qScCLrUftAs0/Z3lleOCWsMkkgQl8KaUDunyJIBR37Rv3oCjMAdcFVFzzW3SwM42FVdgqEKGFxvK2JFUJhQwo5FZDZSyCQ4S7d0rqNZTUxSvGXKSXCVOxwggmGmuJJBPGrFd0s1jbMfzVVlb6Su2pNksis1a/jm6H/iGkEN+DJblLgFbosV0TIiN1iVb6cyP290YWnnWzUlLATaPDDoXWx9xavoNRbNQdw1Dc4IqWo1AlArZr1NsdeAMaN3DWtY2PTofRFDbyJMXJtLZGoHP9hH7N4wMxKvRQSQVp7wGjzouvlYqD1n6NH0gfh6DODI7z/PzyOs+zlGUZu0ZHchMPFoHSoy7lCHQyDTuVOrQ/JIVm20qlXUKMtSrBpzBAttdxJHEydejn3NIB9cQudaRvVkeBV5SaRfBsHc5Abo3xeSFteuj/Wzp0LTs8GfsHLLNqLXmc+h7UwLMciPh3MDT50u/yOPN5+4vqQj3h/d9w4Y/4e8wYsuxLeqGFKV6kZk1HeWNskWMs1SXxyDdAn79wkuo2nyTc5jU9268++iPvAX+f7JOfJFkq7Q==</source>
+  </file>
+  <file path="Encoder/PasswordEncoder.php" generated-path="Encoder.PasswordEncoder.html" hash="8d7281ae1db4e648a569dbe19f307561" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="PasswordEncoderInterface">\Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Encoder" line="7" package="Default">
+      <extends/>
+      <implements>\Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface</implements>
+      <name>PasswordEncoder</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Encoder" line="13" package="Default">
+        <name>$algorithm</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder::algorithm</full_name>
+        <default></default>
+        <docblock line="13">
+          <description>Algorithm to use for password encoding</description>
+          <long-description></long-description>
+          <tag name="var" line="13" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Encoder" line="19" package="Default">
+        <name>__construct</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder::__construct()</full_name>
+        <docblock line="19">
+          <description>Class constructor</description>
+          <long-description></long-description>
+          <tag name="param" line="19" description="&lt;p&gt;Algorithm to use for password encoding&lt;/p&gt;" type="string" variable="$algorithm">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$algorithm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Encoder" line="30" package="Default">
+        <name>encodePassword</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder::encodePassword()</full_name>
+        <docblock line="30">
+          <description>Encode password</description>
+          <long-description></long-description>
+          <tag name="param" line="30" description="&lt;p&gt;The raw password&lt;/p&gt;" type="string" variable="$raw">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="30" description="&lt;p&gt;The encoding salt&lt;/p&gt;" type="string" variable="$salt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="30" description="The encoded password" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$raw</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$salt</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Encoder" line="44" package="Default">
+        <name>isPasswordValid</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Encoder\PasswordEncoder::isPasswordValid()</full_name>
+        <docblock line="44">
+          <description>Check if a raw password matches an encoded one</description>
+          <long-description></long-description>
+          <tag name="param" line="44" description="&lt;p&gt;The encoded password&lt;/p&gt;" type="string" variable="$encoded">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="44" description="&lt;p&gt;The raw password&lt;/p&gt;" type="string" variable="$raw">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="44" description="&lt;p&gt;The encoding salt&lt;/p&gt;" type="string" variable="$salt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="44" description="TRUE for password match, FALSE otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$encoded</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$raw</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$salt</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class ""</error>
+    </parse_markers>
+    <source>eJyVU89P2zAUvueveIci2iqDw27bAoOqk5A4oBV2ioSM+4I9EtuyHSo08b/Pdhy3TWkBX9K+fO+974fz41wxlWWCNGgUoQiLpxUvL1uxrLG80fIvUntJDMbKXFC5RP09y1rjsC9NJcVLOZONkgKFLRdIW82tL+mELm+IMSupl/H/lbCoK7fMjaG1ewcDAPBG1di4gTuvUm/2LwN3TqfT8IQpXNSP0u1mDVgJnl4lNajYDuj7uXjs0T+fiQZj9bp0Gp5K82diEUakH+dYDjbNAmkqhetvqZU6DVVEkyaO3RjxOW6RSPtQcwpVK6jlUsD9fVo4Xk+eBGznhT8jy7j5crbeXGwp8ZDXHT2dt4nPQE2So8kK4JYh+B/vgQ2pbQD34sBXElqjbbXo0d1JaFwOx79tSQfub8jYE8y7zTu2xEWF36iVNOMAy+GYHE+OvsJ513YSNH4LUk9CJYbvT6TMiGHjoc15v2Gyz+MZQ/oEvAKyZR80xFKGBohI2t2ntMdVGPWYA17tNoXg4MPZxfA2E9mX34OUNTrq6dz+vptvX+4gMIdfF9eLOUjLUK+4wYO5ctNn+ofU3AUbleZwIOLIKCZz4GpAURTJyBTXa/Yf986RNA==</source>
+  </file>
+  <file path="Helper/DataFormatHelper.php" generated-path="Helper.DataFormatHelper.html" hash="8ceb54a22ee16a4d47f6e365bb68d2c1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="5" package="Default">
+      <extends/>
+      <name>DataFormatHelper</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="7" package="Default">
+        <name>lastnameFormat</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::lastnameFormat()</full_name>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="12" package="Default">
+        <name>firstnameFormat</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::firstnameFormat()</full_name>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="17" package="Default">
+        <name>phoneNumberFormat</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::phoneNumberFormat()</full_name>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$num</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sep</name>
+          <default>" "</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="32" package="Default">
+        <name>ConvNumberLetter</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::ConvNumberLetter()</full_name>
+        <docblock line="32">
+          <description>fonction permettant de transformer une valeur numérique en valeur en lettre</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="&lt;p&gt;le nombre a convertir&lt;/p&gt;" type="integer" variable="$Nombre">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="32" description="&lt;p&gt;(0 = aucune, 1 = Euro €, 2 = Dollar $)&lt;/p&gt;" type="integer" variable="$Devise">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="32" description="&lt;p&gt;(0 = Français, 1 = Belgique, 2 = Suisse)&lt;/p&gt;" type="integer" variable="$Langue">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="32" description="la chaine" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$Nombre</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Devise</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Langue</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="75" package="Default">
+        <name>ConvNumEnt</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::ConvNumEnt()</full_name>
+        <docblock line="75">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$Nombre</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Langue</name>
+          <default>0</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="142" package="Default">
+        <name>ConvNumDizaine</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::ConvNumDizaine()</full_name>
+        <docblock line="142">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$Nombre</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Langue</name>
+          <default>0</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="197" package="Default">
+        <name>ConvNumCent</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\DataFormatHelper::ConvNumCent()</full_name>
+        <docblock line="197">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$Nombre</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Langue</name>
+          <default>0</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="7" code="PPC:ERR-50015">Argument $string is missing from the Docblock of lastnameFormat()</error>
+      <error line="7" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="12" code="PPC:ERR-50015">Argument $string is missing from the Docblock of firstnameFormat()</error>
+      <error line="12" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="17" code="PPC:ERR-50015">Argument $num is missing from the Docblock of phoneNumberFormat()</error>
+      <error line="17" code="PPC:ERR-50015">Argument $sep is missing from the Docblock of phoneNumberFormat()</error>
+      <error line="17" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="75" code="PPC:ERR-50015">Argument $Nombre is missing from the Docblock of ConvNumEnt()</error>
+      <error line="75" code="PPC:ERR-50015">Argument $Langue is missing from the Docblock of ConvNumEnt()</error>
+      <error line="75" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="142" code="PPC:ERR-50015">Argument $Nombre is missing from the Docblock of ConvNumDizaine()</error>
+      <error line="142" code="PPC:ERR-50015">Argument $Langue is missing from the Docblock of ConvNumDizaine()</error>
+      <error line="142" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="197" code="PPC:ERR-50015">Argument $Nombre is missing from the Docblock of ConvNumCent()</error>
+      <error line="197" code="PPC:ERR-50015">Argument $Langue is missing from the Docblock of ConvNumCent()</error>
+      <error line="197" code="PPC:ERR-50008">No summary for method ""</error>
+    </parse_markers>
+    <source>eJztWc1y2zYQvuspEFYTS65/ZF8S22HaSZykB4+nU7unxNOBKMhGTYEyCMixO7r0ZTqd6VvkTfokXfyQBEBKpvyTS0OPTZDY/fYXCyz96ofpxbTTYXhC8ilOCDq5vKaf3kg2Ssmnn3n2O0nEG5wT++Ynkk4JP+h0khTnOTrEAr/P+AQLM9H5o4PgmsphShOUCyzgNpYsETRjCFiEEmQ4et1ccMrO+5rFMKqLEyE5A2YuMjkF0JLwQNPMO8tkjClfQQiSiWboaWlpdu1IayVuepExciwnQ8ILgUxONlA3J9M4QlEol46RkpUSpgn7KI7RzqBfzju6JReSXf6WT1NagO4aXKuYukiakyZeRe+pv72+ru/raJwVqhM+IUJgJtCIIMExy8dgAuFIMoJmOCWSI8D58jenV5IgwoqXMEqBkxML+eMUczxBFJC6x9lkyAnMI2ZGGCUZmxEuKG8gPyQzmhPUG6AYYZmA5A20A+N3kmfo3z//AaPh6TBLU8xRt9+AcITZubQI78GIL39hmhuQNyQ9V6obkBNJ85yUEFWaQbAhNcHfmDJr0vaymL8Fe0zIj8ALKmOM0RulOTEabJSawUOYBd3RMH3HRLy2doC6w5tDkqhhNT08Jucgc+y/BVUBH/DCt28JExTWr53ykq0IyCvQwtHAEwN8gkty4M9aRojLMC9g+g76PDQHSCEikCMlNXJtUmYCCc+gkvRKvTYL7j4EZWcwcHm0/pYvruuvp63o12jPv0JiZ3FE353ybPoBcmUUId/oyqa5XlvtJW49gshylF9TkVyALJNPIXAC9RgN0H5dN+Os18pXVbpEaEb5uUxJKBr8jy8P6tA7AbQLpRZmiNMk2slJ73ELMNRD3laZ3SXKmLrwGOrcoc3cy0knB3b66PnzMlDomUpT1/fFCORoi6v14FYQVeKCnXR/35YZkNMbpxk2C8uulbK69AHZkQE/W4uhDumtKnHWOTWM0imOmsV+4mrr74uczrAgi4qk0r4qj4sroluqmta61WPtlvBszY2LW2BAXtylp5NprPz0C8kFgQrqFqETwWE6LKFGz4CUGsKqTvX84oa2Vbka2LLl1S0LuCyqytcloBLlhtRBKuyo1dZSfIPKJZOjdPluidqldx6qdlm/NEmb6tW6FJU6RhOawimjRRkZkTGWqViIVIzU+qmDzhvCWnEU75aHrOb8/2vQQlerSvEEEQTY/FsQv1oQMR89SRQB91sYv0oYh0+zFocPWYtNZxCYWeX0UR54WpxAuqd4+CujIlYDYAw6shszBycnPeVGHY5ORxSaTpCrDhbeKc+Cqi6Kc3zTi6INFEmm/o6I/Kzugmc0V4MriaGnVqOEsit1z6mmgJ5fRBuev6MLSYWaY0SONZohzditRhhl0gwAkZqRgs94Maaa0MfMC1IA2zRCzbgQpsZaoJf1xl++iep3Bo21sDowUegAPZAojZTmIVAjo58LInds/LNZwnrPtb6xiHSszuhB42s0/vjiTJ0jlKFaRJD7BdWepmIZC4lMixgI232YsJeaSvn7fip5/bYOSsOxMejLbYI6J13LvB7SepkebUahzwss7fOAGhHhlYGyxGlZrWpcgHjvdrYy2Y6+B0NDV99P1oumrrzKDtWNtpG+CP7lEvhnOvmWxWgZ8t6ditc/brQypcGZNaXmy1T09wtb0pVMuxhMAp01fDdS+R+Dz6BDd52kn6tUVTHxgZ2nom/3oG1R/2hBzhRqFNUW/hJQ1yFbqA4YFpnW0I2tsbOBWrpVNlF9ZFlpB/W3x+GNQlBbZ1NHDo4oTmj+hJXsb8OPuJ027qB9b/M2mi9ovYMiWhjhV1HNX/uu6Rrd5mONpq3OiY01VElqV0StY+3HKaPH/QqpXWfWlDIjFkiLkobvbLV/YDQx6a9aKyjbfERdTVt3TapXZ/pAmzR9ubzLhsVQCw1rXryKuVy5885/1qUa1g==</source>
+  </file>
+  <file path="Helper/TextHelper.php" generated-path="Helper.TextHelper.html" hash="df43a7360982c3cd74dc0a2f96f04955" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="5" package="Default">
+      <extends/>
+      <name>TextHelper</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\TextHelper</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Helper" line="7" package="Default">
+        <name>slug</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Helper\TextHelper::slug()</full_name>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$str</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="7" code="PPC:ERR-50015">Argument $str is missing from the Docblock of slug()</error>
+      <error line="7" code="PPC:ERR-50008">No summary for method ""</error>
+    </parse_markers>
+    <source>eJyFjrEKwjAQhvc8RShCKxrqKiqCk6Ogm1WJ8dRqmobLhYriu5u20sHFf7iDj+8/bjq3V8uYkQU4KxXw9b3Ks4U3Jw3ZCssbKFpIB1+yBG0BJ4wpLZ3jG3hQi9iL8RDrjzpX3JGksM7eKMpLw532l6TnCPuN1bp1asZnwUcqdVkBJoR50ar9ya9mES4HBKvDo0mcbvdSPEdiLHZpPOSxCKMp/uuJQe1HIur8roBAHk2D2ytv9mYfVDNV7Q==</source>
+  </file>
+  <file path="Manager/BaseManager.php" generated-path="Manager.BaseManager.html" hash="15dfe47d0ed2ed1bfc03c8b13dd98fbd" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ObjectManager">\Doctrine\Common\Persistence\ObjectManager</namespace-alias>
+    <namespace-alias name="DoctrineORMAdapter">\Pagerfanta\Adapter\DoctrineORMAdapter</namespace-alias>
+    <namespace-alias name="Pagerfanta">\Pagerfanta\Pagerfanta</namespace-alias>
+    <class final="false" abstract="true" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="14" package="Default">
+      <extends/>
+      <name>BaseManager</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</full_name>
+      <docblock line="14">
+        <description>Abstract class extended by managers.</description>
+        <long-description>Provides construction w/ Dependency Injection and
+universal methods uesfull to most managers.</long-description>
+        <tag name="package" line="14" description="Default"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="19" package="Default">
+        <name>$om</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::om</full_name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="19" description="" type="\Doctrine\Common\Persistence\ObjectManager" variable="$om">
+            <type>\Doctrine\Common\Persistence\ObjectManager</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="24" package="Default">
+        <name>$bundleName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::bundleName</full_name>
+        <default></default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="29" package="Default">
+        <name>$bundleNamespace</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::bundleNamespace</full_name>
+        <default></default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="34" package="Default">
+        <name>$objectName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::objectName</full_name>
+        <default></default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="39" package="Default">
+        <name>$repository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::repository</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="$repository">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="44" package="Default">
+        <name>$stateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::stateProperty</full_name>
+        <default></default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="" type="string" variable="$stateProperty">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="49" package="Default">
+        <name>$stateActiveValue</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::stateActiveValue</full_name>
+        <default></default>
+        <docblock line="49">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="integer" variable="$stateActiveValue">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="55" package="Default">
+        <name>$pagerMaxPerPage</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::pagerMaxPerPage</full_name>
+        <default>10</default>
+        <docblock line="55">
+          <description>Number of max item on paginated pages</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="61" package="Default">
+        <name>$kernelRootDir</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::kernelRootDir</full_name>
+        <default></default>
+        <docblock line="61">
+          <description>Application kernel root directory</description>
+          <long-description></long-description>
+          <tag name="var" line="61" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="67" package="Default">
+        <name>getManagedType</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getManagedType()</full_name>
+        <docblock line="67">
+          <description>Tells whether Documents or Entities are managed</description>
+          <long-description></long-description>
+          <tag name="return" line="67" description="&quot;Document&quot; or &quot;Entity&quot;" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="79" package="Default">
+        <name>setKernelRootDir</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setKernelRootDir()</full_name>
+        <docblock line="79">
+          <description>Set the Application kernel root directory</description>
+          <long-description></long-description>
+          <tag name="param" line="79" description="&lt;p&gt;Application kernel root directory&lt;/p&gt;" type="string" variable="$kernelRootDir">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$kernelRootDir</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="88" package="Default">
+        <name>setObjectManager</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setObjectManager()</full_name>
+        <docblock line="88">
+          <description>Set the Doctrine Object Manager</description>
+          <long-description></long-description>
+          <tag name="param" line="88" description="&lt;p&gt;Doctrine Object Manager&lt;/p&gt;" type="\Doctrine\Common\Persistence\ObjectManager" variable="$om">
+            <type>\Doctrine\Common\Persistence\ObjectManager</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$om</name>
+          <default></default>
+          <type>\Doctrine\Common\Persistence\ObjectManager</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="97" package="Default">
+        <name>setObject</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setObject()</full_name>
+        <docblock line="97">
+          <description>Set the managed Object config</description>
+          <long-description></long-description>
+          <tag name="param" line="97" description="&lt;p&gt;The object Name&lt;/p&gt;" type="string" variable="$object">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="106" package="Default">
+        <name>setBundleName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setBundleName()</full_name>
+        <docblock line="106">
+          <description>Set the managed object Bundle Name</description>
+          <long-description></long-description>
+          <tag name="param" line="106" description="&lt;p&gt;The bundle Name&lt;/p&gt;" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bundleName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="115" package="Default">
+        <name>setBundleNamespace</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setBundleNamespace()</full_name>
+        <docblock line="115">
+          <description>Set the managed object Bundle Namespace</description>
+          <long-description></long-description>
+          <tag name="param" line="115" description="&lt;p&gt;The bundle Namespace&lt;/p&gt;" type="string" variable="$bundleNamespace">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bundleNamespace</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="125" package="Default">
+        <name>setStateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setStateProperty()</full_name>
+        <docblock line="125">
+          <description>Set the name of the property defining entity state, and its ctive value</description>
+          <long-description></long-description>
+          <tag name="param" line="125" description="&lt;p&gt;The name of the property&lt;/p&gt;" type="string" variable="$stateProperty">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="125" description="&lt;p&gt;The value for state &quot;active&quot;&lt;/p&gt;" type="string" variable="$stateActiveValue">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$stateProperty</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stateActiveValue</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="135" package="Default">
+        <name>getStateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getStateProperty()</full_name>
+        <docblock line="135">
+          <description>Gets the name of the state property</description>
+          <long-description></long-description>
+          <tag name="return" line="135" description="The name of the property (NULL if no state property)" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="156" package="Default">
+        <name>getStateActiveValue</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getStateActiveValue()</full_name>
+        <docblock line="156">
+          <description>Gets the active value for the state property</description>
+          <long-description></long-description>
+          <tag name="return" line="156" description="The active value (default : TRUE)" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="170" package="Default">
+        <name>decodeObjectName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::decodeObjectName()</full_name>
+        <docblock line="170">
+          <description>Decode ObjectName according to the Bundle, and store linked properties</description>
+          <long-description></long-description>
+          <tag name="param" line="170" description="&lt;p&gt;The Bundle coded Object Name&lt;/p&gt;" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="170" description="&lt;p&gt;The property where the name will be stored&lt;/p&gt;" type="string" variable="$objectProperty">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="170" description="&lt;p&gt;The property where the related repository will be stored&lt;/p&gt;" type="string" variable="$repoProperty">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="170" description="When the object or repo property does not exist" type="\Skwi\Bundle\ProjectBaseBundle\Manager\NoSuchPropertyException">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\NoSuchPropertyException</type>
+          </tag>
+          <tag name="return" line="170" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objectName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$objectProperty</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$repoProperty</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="201" package="Default">
+        <name>save</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::save()</full_name>
+        <docblock line="201">
+          <description>Saves the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="201" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="201" description="The saved object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="212" package="Default">
+        <name>delete</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::delete()</full_name>
+        <docblock line="212">
+          <description>Deletes the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="212" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="212" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="226" package="Default">
+        <name>remove</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::remove()</full_name>
+        <docblock line="226">
+          <description>Remove the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="226" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="226" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="240" package="Default">
+        <name>find</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::find()</full_name>
+        <docblock line="240">
+          <description>Retruns the object matching a specific Id optionnaly
+for a specific type of Object handled by this manager</description>
+          <long-description></long-description>
+          <tag name="param" line="240" description="&lt;p&gt;The id of the object&lt;/p&gt;" type="integer" variable="$id">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="240" description="&lt;p&gt;The object name&lt;/p&gt;" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="240" description="The matching object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$objectName</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="252" package="Default">
+        <name>createBaseQueryBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::createBaseQueryBuilder()</full_name>
+        <docblock line="252">
+          <description>Base query filtering activated objects</description>
+          <long-description></long-description>
+          <tag name="param" line="252" description="&lt;p&gt;Set to FALSE to retrun also inactive objects&lt;/p&gt;" type="boolean" variable="$onlyActive">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="252" description="A doctrine query builder" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine\ORM\QueryBuilder">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine\ORM\QueryBuilder</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="275" package="Default">
+        <name>findAll</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAll()</full_name>
+        <docblock line="275">
+          <description>Retruns all the objects</description>
+          <long-description></long-description>
+          <tag name="return" line="275" description="Collection all the objects" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="289" package="Default">
+        <name>findAllInRange</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAllInRange()</full_name>
+        <docblock line="289">
+          <description>Retruns all the objects in a range between $offset and ($offset + $limit)</description>
+          <long-description></long-description>
+          <tag name="return" line="289" description="Collection all the objects" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$offset</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$limit</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="303" package="Default">
+        <name>findAllPaginated</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAllPaginated()</full_name>
+        <docblock line="303">
+          <description>Retruns all the objects, paginated with PagerFanta</description>
+          <long-description></long-description>
+          <tag name="return" line="303" description="Pager" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="319" package="Default">
+        <name>getFullClassname</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getFullClassname()</full_name>
+        <docblock line="319">
+          <description>Return the full class name</description>
+          <long-description></long-description>
+          <tag name="param" line="319" description="&lt;p&gt;A basic class name (null = managed objects)&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="319" description="The full class name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="335" package="Default">
+        <name>createNew</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::createNew()</full_name>
+        <docblock line="335">
+          <description>Creates a new Instance of the specific Object</description>
+          <long-description></long-description>
+          <tag name="param" line="335" description="&lt;p&gt;A specific object class name. If null, managed Object Will be used&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="335" description="The created Object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="348" package="Default">
+        <name>persistAndFlush</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::persistAndFlush()</full_name>
+        <docblock line="348">
+          <description>Persist an object and flush the Doctrine Object Manager</description>
+          <long-description></long-description>
+          <tag name="param" line="348" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="348" description="The persisted object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="362" package="Default">
+        <name>persist</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::persist()</full_name>
+        <docblock line="362">
+          <description>Persist an object</description>
+          <long-description></long-description>
+          <tag name="param" line="362" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="362" description="The persisted object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="376" package="Default">
+        <name>flush</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::flush()</full_name>
+        <docblock line="376">
+          <description>flush the Doctrine Object Manager</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="385" package="Default">
+        <name>toggleState</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::toggleState()</full_name>
+        <docblock line="385">
+          <description>Toggle state and save</description>
+          <long-description></long-description>
+          <tag name="param" line="385" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="412" package="Default">
+        <name>isNew</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::isNew()</full_name>
+        <docblock line="412">
+          <description>Tells if an object is new</description>
+          <long-description></long-description>
+          <tag name="param" line="412" description="&lt;p&gt;The object to test&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="412" description="TRUE if new, FALSE otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="424" package="Default">
+        <name>getByField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getByField()</full_name>
+        <docblock line="424">
+          <description>Retrieve an object matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="424" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="424" description="" type="Object">
+            <type>Object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="438" package="Default">
+        <name>getAllByField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByField()</full_name>
+        <docblock line="438">
+          <description>Retrieve objects matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="438" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="438" description="" type="Array">
+            <type>Array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="453" package="Default">
+        <name>getAllByFieldPaginated</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByFieldPaginated()</full_name>
+        <docblock line="453">
+          <description>Retrieve paginated object list matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="453" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="453" description="" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="474" package="Default">
+        <name>getAllByFieldPaginatedAndSorted</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByFieldPaginatedAndSorted()</full_name>
+        <docblock line="474">
+          <description>Retrieve paginated and sorted object list matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="474" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="474" description="" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sortField</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sortDirection</name>
+          <default>'ASC'</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="500" package="Default">
+        <name>checkInstance</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::checkInstance()</full_name>
+        <docblock line="500">
+          <description>Check if an object is an instance of the managed object</description>
+          <long-description></long-description>
+          <tag name="param" line="500" description="&lt;p&gt;The object to test&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="param" line="500" description="&lt;p&gt;The className to check (null = default managed class)&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="500" description="True if the instance is a match, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="514" package="Default">
+        <name>getSingleScalarField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getSingleScalarField()</full_name>
+        <docblock line="514">
+          <description>Gets the scalar value of a field, for a specific object</description>
+          <long-description></long-description>
+          <tag name="param" line="514" description="&lt;p&gt;The target object Id&lt;/p&gt;" type="integer" variable="$objectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="514" description="&lt;p&gt;The target field&lt;/p&gt;" type="string" variable="$fieldName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="514" description="The scalar result" type="\Skwi\Bundle\ProjectBaseBundle\Manager\misc">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\misc</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fieldName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="529" package="Default">
+        <name>setPagerDefaultMaxPerPage</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setPagerDefaultMaxPerPage()</full_name>
+        <docblock line="529">
+          <description>Sets the max per page for paginated display</description>
+          <long-description></long-description>
+          <tag name="param" line="529" description="&lt;p&gt;The max item per page&lt;/p&gt;" type="integer" variable="$pagerMaxPerPage">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pagerMaxPerPage</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="539" package="Default">
+        <name>getPagerFromQueryBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getPagerFromQueryBuilder()</full_name>
+        <docblock line="539">
+          <description>Init pager with the query builder</description>
+          <long-description></long-description>
+          <tag name="param" line="539" description="&lt;p&gt;The query builder to paginate&lt;/p&gt;" type="\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder" variable="$queryBuilder">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder</type>
+          </tag>
+          <tag name="return" line="539" description="The pager" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$queryBuilder</name>
+          <default></default>
+          <type>\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Manager" line="558" package="Default">
+        <name>loadFromArray</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::loadFromArray()</full_name>
+        <docblock line="558">
+          <description>Creates a new Instance of the specific Object and load data form an array
+The object should have a "loadFromArray" method</description>
+          <long-description></long-description>
+          <tag name="param" line="558" description="&lt;p&gt;The data to load within the object&lt;/p&gt;" type="" variable="$dataArray"/>
+          <tag name="param" line="558" description="&lt;p&gt;A specific object class name. If null, managed Object Will be used&lt;/p&gt;" type="" variable="$className"/>
+          <tag name="return" line="558" description="The created Object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dataArray</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="275" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of findAll()</error>
+      <error line="289" code="PPC:ERR-50015">Argument $offset is missing from the Docblock of findAllInRange()</error>
+      <error line="289" code="PPC:ERR-50015">Argument $limit is missing from the Docblock of findAllInRange()</error>
+      <error line="289" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of findAllInRange()</error>
+      <error line="303" code="PPC:ERR-50015">Argument $page is missing from the Docblock of findAllPaginated()</error>
+      <error line="303" code="PPC:ERR-50015">Argument $maxPerPage is missing from the Docblock of findAllPaginated()</error>
+      <error line="303" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of findAllPaginated()</error>
+      <error line="424" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of getByField()</error>
+      <error line="438" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of getAllByField()</error>
+      <error line="453" code="PPC:ERR-50015">Argument $page is missing from the Docblock of getAllByFieldPaginated()</error>
+      <error line="453" code="PPC:ERR-50015">Argument $maxPerPage is missing from the Docblock of getAllByFieldPaginated()</error>
+      <error line="453" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of getAllByFieldPaginated()</error>
+      <error line="474" code="PPC:ERR-50015">Argument $page is missing from the Docblock of getAllByFieldPaginatedAndSorted()</error>
+      <error line="474" code="PPC:ERR-50015">Argument $maxPerPage is missing from the Docblock of getAllByFieldPaginatedAndSorted()</error>
+      <error line="474" code="PPC:ERR-50015">Argument $sortField is missing from the Docblock of getAllByFieldPaginatedAndSorted()</error>
+      <error line="474" code="PPC:ERR-50015">Argument $sortDirection is missing from the Docblock of getAllByFieldPaginatedAndSorted()</error>
+      <error line="474" code="PPC:ERR-50015">Argument $onlyActive is missing from the Docblock of getAllByFieldPaginatedAndSorted()</error>
+      <error line="539" code="PPC:ERR-50015">Argument $maxPerPage is missing from the Docblock of getPagerFromQueryBuilder()</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $om</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $bundleName</error>
+      <error line="29" code="PPC:ERR-50007">No summary for property $bundleNamespace</error>
+      <error line="34" code="PPC:ERR-50007">No summary for property $objectName</error>
+      <error line="39" code="PPC:ERR-50007">No summary for property $repository</error>
+      <error line="44" code="PPC:ERR-50007">No summary for property $stateProperty</error>
+      <error line="49" code="PPC:ERR-50007">No summary for property $stateActiveValue</error>
+    </parse_markers>
+    <source>eJztG11z27jx3b8C8SknKqc4l1enSqrYccfTJE5tpXk4XT0UCVmoKVIhKMtuJ/+9uwuQBEiAku7STK5TzXgskbuL/cJ+gfzTq9VidXCQhksuV2HE2dXtRkxfr9M44dMPefZPHhWvQ8n1lXdhGt7w/MXBwVpydppFRS5SPj3JlsssnX7guRSy4GnEpxczRK3gEfwDfp2HaRFOx3G4Kng+LSlcXL7Tl1qg9VdY9dmTJwfsCRvPZJGHUcGiJJSS8XtYM+Yxmz2wpVpRHiEcCHAnYi5ZlKWAsY4KkaVs84yd8hVipNEDO0+RUbwepjEirVNxBwTChC15schiydZcztdJwoqMLTNZWGs8eXYQ2tygurTcB/8+YPAhrvHzhP35LszZdGfFsV621KjP6P8qzwq4DbLCHVCIi7xE2jesNyObvQfT+kjUEF+RFPnRFnoZCdlFr4bwkNpBiZd8lUlRZPkD6+XVd9+KNcQW5mURFhxca8XzwkvNAvIQFGnBycgEPAYvvON/D5O1VylNuDbd9+vlDChmc3DSeyYKvmTg2avwRqQhkoBvXLqY8C2JCPm78B60izuRjdjzn9vLjlerREQhbaNbnqc8YXmWFSwWOdCplb7TkorAJeCfiry91oQniWSbBWxOkBS8YL3kaSFZlrM3aSEKAfs9zLnepXG1cs6LdZ6WVjwsEQ8R8ZAwHw49LM3XqQoRN1zvzHjysOLBgODUJsdPr4CroCK5xpAQAPQ1xYSgVyyEfPoyWw6GyEAOnua5259O+wP2E3s+eNEmW+TX4KUJ7K+gryNEH1Dgj0AGWln40dLSdUXpS0uTV7xgoMQ9rLcK83BZbQTLUASyKyWt4PUMoGvtSl781SQZ2Cu0tU1qs7kYtfynW/YyijAVMlgZuW2JW0GZbnfjemW0iAUt0h4xYc2RCvrdAmm3L3mCzDcXNx4DqiDLJoCmv7ZDso//QGN72I15lMX8ooriJTi4ax3a0XnrsNsf7CqbZlYVJSbPTQHrrET3UdBZC8kr6OsKOzAoeQQ2lhrZmfW3ykSJdKtgqmxzSGei7yAigQdNwluFVcuPHAVAt9hYcWKawu8rnSZZzOciRfk4hWNG+W6IhRmkMqjiMPGxOyNDNtViZd1KKa61uggYGbaiQauyeZYrpthhSECH2xR8ZXIU2AwOHeuNWAqlpkfttnijVpXhAreJO0oIt53+wkHhTUMp0VsqtDOrT+MseP/x7Vsm5izNGpQGnVq8aWqxpR29d0al4FHOAf493wRmSpQbUUQLFkAjoP3aJoOfCIp3t7Z//FH3A9f8HspMaQQ0YLB/tI42WR5XydxCHgyOrVXwUyXoNviLNksdS5Nu+v4V+kS7vz/RtdxGFSBssrCBw3VSeLHQt2uML9t8LzR2PO297U64FPcQTCdN5EBzxo7Z5PLjm90cztgmLZ9zmM/caY9GaiOzV16QY4aO6Nt/p5Q/WZ1AQZ4IHAx3GPShqAgVu1V4lJBAOUtEeotFvtKNqCr9RrBztGFKqElFleHqVRHhyLANGnXMnZhbHqp0YKsKIxsBGplxxW3so4gVgRnDPRRznlBLUxcQPvrFIs82kr3PrtbRoqT85j7iKzL3pwVPiaIOI+BnSNNISxm0FCmUsbRTmh53l4nYdqd23+CrhvD7sKVD5TrDhibcmQF2BQ8xqoV5Hj4EDVINGgMWSmjpql927IPIHFQ3Md49Kn9UIQJdeWhQaJLAD2mbpXzjU3jQQsGPXIH1i7n7Jn76lh88lg2zUHxQE5jHsj/0kqmY94M0OrOBE7B9dWDHwi9GnKtT1TKEHDThErNVKXL/h388lsfBL+HTf/3606D3g6CGrlFoGdTRUKuc31wTsaCmOWS2X9GNlpHIzrafuOyoOWg7pyL7y/NfffJWi9i+51+i4edVx/P0JZiinuKYu6ZD2YbKzcIzvOMqq8gVj8RcwP4UKUTlNKJSJUz1/vfETJVYHC0TRGMJtP2JCO/GNnFPuQiAvrbKzjcrNesap/FZspaLCsmfTRJefFPx21GxIWxMLG3pItEFcr7MDL20qtw5acAx+3ju08YlUfyelNGQcU9luCSE2iKVZlajTYv5NSyFjtg5uCWF5DRMqkoK46gBQ7Mn0IkuBRYhBiQatSNX5SzcrSiIbsS/iEtRSFnwU/cGlpbd0wmqTgwVp3Ut4t9ylbA77DpoOeMAWLSCp68Pq4uNcVHgtOmRkNcIacUmqPqSaC5yWdiXj1i/jmZ9qADN6YdreFeHx3pR8HjNsdf8eATBPq85lERzkRSc9En1MFVMiiXZ9OpZliUcXL+XpcmDqlRVu56xs/Hbqzf4JSfHYmEiM7CuLrGb9DT71YD+4vLd9G/Izeu1SGKel2KOIYXrCZpidqbub6umVHuHQppUA5PvEau7PMN8n2d1eqm1WjaMFrV+1jdjSk/JeiZ4Etc02q3piyZG1XnbGFZvYayjknMtCJRh5tLOXF5RtmbTbAQ9SL8cc/ed+ffzDL0J6AbWIk9f8s9rsHFgytDMuIwn4GUeohAlPmGlHlQ1TnYEJduIajNLoqGlqMEuRVS5PT7PtsW/EE/tFk0P9TkqO8mSpDwMdGL6I8iYQsA2B+w2V4e17IiwfQMMaAG6G6A573m0Lrjpnk77/c5lqFqT0GZbC+1nIwgrkH7yML3h0MoVG84xIs3nEiIRdrpB+eMn1kvEUhSD/65Vz9NL5KVcdqhXHbLvy9rEVKA18vSlvBWrkuVv5wsSpbxXLiANZnhxhslQ+4abra/hO0PjpHMjioV6juAMHx7wOEkNoL7u4hEfyjUCOh2lPss4H9W9+/ZkZGGZv16yn3FuZFw5rgp/+zjWTFBmbtvBWkaiIqJWilJqybOljf55ZgnbokGmPlnnOTg1AigFuY4lV+qxEK91EQgNS89dqK4+7RhCEQTVbWM2CyUYrcZhAQ3iRo2TlrKtb82vjc/Ey0HXCfEZYJwgQkqTnpo3d01Zru6af/Qfy+lU/TVGGu6DGCdMM/bYQCaDr0xNVj5nVLAVprf0PCHPg51JE6Bzo6ky2q1IdxPursFl1ApRdwG1QY7Y+VzvucbR5yc9DVzL9lMAdaugtkpsc+QJAPW5wlar9uamF1iby+cfjn2COrQpBV7N6+df6uaV0iV1xzucdO/T4urpg1+nGsAz9WhvGt84w90Ha+jfMBHQGDtr8NvrpuFwTVEdBYbvEAci8cdVjK49hgKjWWFoOArYFViA7jY9hR+FQE9rJWJDxziMaBtiT4Xv6ZyerKys7fYVZLNyBwcTT9gku7lJylMlOkopBzj7G9zDYUFLUNvnde3W0e72BhOt/8hGbJq5nsVPL9cpWrVjCt85ge+fhKoAqkfwiyyh4yiluh3G78Zc3dSC+bGvWA5o6IoXBRUs6OR48qpHLbYqjLBwUyHcdCLUGOX20GuBnqsripi1O8ojvtAazXk2g0HC55L0hJsw5pBMSLSiut9wTu2dzOOfkIyLEkMzUk168CiUDuT5ZqhnPBk+VbcRknc5tJCUAz2u/DEVxcX8U5bfqs1MDtwa69dQuvo3gLuU6KEO/dTUGjjVcMfHV5Px5M31+zefuuYFgt9xQ+PVCLGgIkHgFC3E5pQOpvGwrZkWxngR5K+Aqy9ghpkeSrZLkYvtaQC08/rhTM1pSqI7N6CNYZIvrrQyRMX9SIl7veQ5lvQ1A/rI0UeRjV6y5+4kYveW5iQOQ8xFyl8/1At1TrnJauXoYGebuU23r+XGBkWv4aBh/N+w3Y7G289ydb+ut10i5B577+vYsTUl2MGYxhDAsOrvmgfs3cBXqNVDALXkeNB/yx/Qjj16BKblI94x7fMeDmqP8T/OaoHKoJWoqXD8gErnmMkQaFgu5E7a3+GQoemCVP1l+R/ZG6GFuiIJdnVLlLc81DAundID27gOFE3jq5P+/z2YAnKlLiczWQ4iQgC0Dj36ppYHTf3+QXbLyYJHt62SFH6IxoTHHrJ1NtBbK9b2oM8cCtHwpvoFeBHxWE77ygf+SoYItDXzqyphcGcUD0WoREIJ1S4dsnmIE3K7OvZtTWKkHH3VLfk3mhkJeR0ai1o0vQm5euRSRmES5vqpSXwUgs3VKV3jsYBO+1YvNimo81iNUosQipCitPS57wFA4BmXrIys0ehi035LISO8MqlZz+kUYVvsvIKVoCcnFF2dlcwODQbaIY4Oqnc+ROZ999NjKv7gsRTAHPWPmiu64OnRRwQXGKyPRdxJ24htfQAd1sbwY9XnMY74QJKrWtHQnX1m43zeX+rAcI+zEnoDjZypzruxkKuk1U9VTtR8BW2iqdHbbSXJTntLHT5PVUyoaQVN4r6RY+stuCaiT/5zaEOZiuZ0IoWqcD3sUEptPSehdF7+mjRRafykteivItTUcevhljfFTP3PcVj8uQqMljpD9ZYv3uYb1n79N7BItrIZvQeskesXg4OSrDXC+SrHa47ly2POyoWs7OtOq/r9ZbeL7HVkQkVqkoWwa0JQBWykJaZhayBhpFO5yNZQ2y1CnG2wQ0REA1NleqhfAHAH8R7SVxUs0qPVwN9oafRkkfqf4PoOj24syYNauF3Ssv/1EisRl/BdU3mLjY6xvI/d7o7cnrZ/OfgP4hkIXw==</source>
+  </file>
+  <file path="SkwiProjectBaseBundle.php" generated-path="SkwiProjectBaseBundle.html" hash="1850d50555042fe30d364d61d69cb60d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Bundle">\Symfony\Component\HttpKernel\Bundle\Bundle</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle" line="7" package="Default">
+      <extends>\Symfony\Component\HttpKernel\Bundle\Bundle</extends>
+      <name>SkwiProjectBaseBundle</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\SkwiProjectBaseBundle</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class ""</error>
+    </parse_markers>
+    <source>eJyzsS/IKODiykvMTS0uSExOVQjOLs+McSrNS8lJjQkoys9KTS5xSixOhYhYc3GVFgPVVOam5edVxjjn5xbk56XmlcR4lJQUeKcW5aXmwPTCNSTnJBYXg43FME4htaIkNS+lWAHC5armquUCACsFNQQ=</source>
+  </file>
+  <file path="Tests/bootstrap.php" generated-path="Tests.bootstrap.html" hash="06bd1900b81164a498a75ba50afc0cbc" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJxtT0sKwjAU3OcUYxHaLkxxXcWFHxQExQuE0rxqIObVNCmKeHcL4kJwmM3AfJjZor20QpgGGUYwnWqMpWxcxcCWK70ZFOZQarU7KSXTQsof9uQ0++Jrl0NZmud4Cgyg+sJIlxythuOAxjiN5E8kkVgZjQdHNOzPFBAYPjokNV9b7sjDuC5U1mIy0dQni1Qet0e1PuzLz9LdhGyal+IlhKdbNJ4Uu5rwc6QUb1nrSxg=</source>
+  </file>
+  <file path="Tests/FakeBundle/Manager/FakeManager.php" generated-path="Tests.FakeBundle.Manager.FakeManager.html" hash="aadd29f52f2668fe4c345a4ebc70d9be" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="BaseManager">\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</namespace-alias>
+    <namespace-alias name="ObjectRepository">\Doctrine\Common\Persistence\ObjectRepository</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="8" package="Default">
+      <extends>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</extends>
+      <name>FakeManager</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager</full_name>
+      <docblock line="8">
+        <description>Abstract class extended by managers.</description>
+        <long-description>Provides construction w/ Dependency Injection and
+universal methods uesfull to most managers.</long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager" refers="\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager" link="/classes/Skwi.Bundle.ProjectBaseBundle.Manager.BaseManager.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="13" package="Default">
+        <name>$otherFakeObjectRepository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager::otherFakeObjectRepository</full_name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="13" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="$otherFakeObjectRepository">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="19" package="Default">
+        <name>$om</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::om</full_name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="19" description="" type="\Doctrine\Common\Persistence\ObjectManager" variable="$om">
+            <type>\Doctrine\Common\Persistence\ObjectManager</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="24" package="Default">
+        <name>$bundleName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::bundleName</full_name>
+        <default></default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="29" package="Default">
+        <name>$bundleNamespace</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::bundleNamespace</full_name>
+        <default></default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="34" package="Default">
+        <name>$objectName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::objectName</full_name>
+        <default></default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="39" package="Default">
+        <name>$repository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::repository</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="$repository">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="44" package="Default">
+        <name>$stateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::stateProperty</full_name>
+        <default></default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="" type="string" variable="$stateProperty">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="49" package="Default">
+        <name>$stateActiveValue</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::stateActiveValue</full_name>
+        <default></default>
+        <docblock line="49">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="integer" variable="$stateActiveValue">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="55" package="Default">
+        <name>$pagerMaxPerPage</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::pagerMaxPerPage</full_name>
+        <default>10</default>
+        <docblock line="55">
+          <description>Number of max item on paginated pages</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="61" package="Default">
+        <name>$kernelRootDir</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::kernelRootDir</full_name>
+        <default></default>
+        <docblock line="61">
+          <description>Application kernel root directory</description>
+          <long-description></long-description>
+          <tag name="var" line="61" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="18" package="Default">
+        <name>setOtherFakeObjectRepository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager::setOtherFakeObjectRepository()</full_name>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="18" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="$otherFakeObjectRepository">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$otherFakeObjectRepository</name>
+          <default></default>
+          <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="67" package="Default">
+        <name>getManagedType</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getManagedType()</full_name>
+        <docblock line="67">
+          <description>Tells whether Documents or Entities are managed</description>
+          <long-description></long-description>
+          <tag name="return" line="67" description="&quot;Document&quot; or &quot;Entity&quot;" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="79" package="Default">
+        <name>setKernelRootDir</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setKernelRootDir()</full_name>
+        <docblock line="79">
+          <description>Set the Application kernel root directory</description>
+          <long-description></long-description>
+          <tag name="param" line="79" description="&lt;p&gt;Application kernel root directory&lt;/p&gt;" type="string" variable="$kernelRootDir">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$kernelRootDir</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="88" package="Default">
+        <name>setObjectManager</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setObjectManager()</full_name>
+        <docblock line="88">
+          <description>Set the Doctrine Object Manager</description>
+          <long-description></long-description>
+          <tag name="param" line="88" description="&lt;p&gt;Doctrine Object Manager&lt;/p&gt;" type="\Doctrine\Common\Persistence\ObjectManager" variable="$om">
+            <type>\Doctrine\Common\Persistence\ObjectManager</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$om</name>
+          <default></default>
+          <type>\Doctrine\Common\Persistence\ObjectManager</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="97" package="Default">
+        <name>setObject</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setObject()</full_name>
+        <docblock line="97">
+          <description>Set the managed Object config</description>
+          <long-description></long-description>
+          <tag name="param" line="97" description="&lt;p&gt;The object Name&lt;/p&gt;" type="string" variable="$object">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="106" package="Default">
+        <name>setBundleName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setBundleName()</full_name>
+        <docblock line="106">
+          <description>Set the managed object Bundle Name</description>
+          <long-description></long-description>
+          <tag name="param" line="106" description="&lt;p&gt;The bundle Name&lt;/p&gt;" type="string" variable="$bundleName">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bundleName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="115" package="Default">
+        <name>setBundleNamespace</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setBundleNamespace()</full_name>
+        <docblock line="115">
+          <description>Set the managed object Bundle Namespace</description>
+          <long-description></long-description>
+          <tag name="param" line="115" description="&lt;p&gt;The bundle Namespace&lt;/p&gt;" type="string" variable="$bundleNamespace">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bundleNamespace</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="125" package="Default">
+        <name>setStateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setStateProperty()</full_name>
+        <docblock line="125">
+          <description>Set the name of the property defining entity state, and its ctive value</description>
+          <long-description></long-description>
+          <tag name="param" line="125" description="&lt;p&gt;The name of the property&lt;/p&gt;" type="string" variable="$stateProperty">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="125" description="&lt;p&gt;The value for state &quot;active&quot;&lt;/p&gt;" type="string" variable="$stateActiveValue">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$stateProperty</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stateActiveValue</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="135" package="Default">
+        <name>getStateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getStateProperty()</full_name>
+        <docblock line="135">
+          <description>Gets the name of the state property</description>
+          <long-description></long-description>
+          <tag name="return" line="135" description="The name of the property (NULL if no state property)" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="156" package="Default">
+        <name>getStateActiveValue</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getStateActiveValue()</full_name>
+        <docblock line="156">
+          <description>Gets the active value for the state property</description>
+          <long-description></long-description>
+          <tag name="return" line="156" description="The active value (default : TRUE)" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="170" package="Default">
+        <name>decodeObjectName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::decodeObjectName()</full_name>
+        <docblock line="170">
+          <description>Decode ObjectName according to the Bundle, and store linked properties</description>
+          <long-description></long-description>
+          <tag name="param" line="170" description="&lt;p&gt;The Bundle coded Object Name&lt;/p&gt;" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="170" description="&lt;p&gt;The property where the name will be stored&lt;/p&gt;" type="string" variable="$objectProperty">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="170" description="&lt;p&gt;The property where the related repository will be stored&lt;/p&gt;" type="string" variable="$repoProperty">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="170" description="When the object or repo property does not exist" type="\Skwi\Bundle\ProjectBaseBundle\Manager\NoSuchPropertyException">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\NoSuchPropertyException</type>
+          </tag>
+          <tag name="return" line="170" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objectName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$objectProperty</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$repoProperty</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="201" package="Default">
+        <name>save</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::save()</full_name>
+        <docblock line="201">
+          <description>Saves the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="201" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="201" description="The saved object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="212" package="Default">
+        <name>delete</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::delete()</full_name>
+        <docblock line="212">
+          <description>Deletes the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="212" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="212" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="226" package="Default">
+        <name>remove</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::remove()</full_name>
+        <docblock line="226">
+          <description>Remove the specified instance of an object</description>
+          <long-description></long-description>
+          <tag name="param" line="226" description="&lt;p&gt;The object to save&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="226" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="240" package="Default">
+        <name>find</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::find()</full_name>
+        <docblock line="240">
+          <description>Retruns the object matching a specific Id optionnaly
+for a specific type of Object handled by this manager</description>
+          <long-description></long-description>
+          <tag name="param" line="240" description="&lt;p&gt;The id of the object&lt;/p&gt;" type="integer" variable="$id">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="240" description="&lt;p&gt;The object name&lt;/p&gt;" type="string" variable="$objectName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="240" description="The matching object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$objectName</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="252" package="Default">
+        <name>createBaseQueryBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::createBaseQueryBuilder()</full_name>
+        <docblock line="252">
+          <description>Base query filtering activated objects</description>
+          <long-description></long-description>
+          <tag name="param" line="252" description="&lt;p&gt;Set to FALSE to retrun also inactive objects&lt;/p&gt;" type="boolean" variable="$onlyActive">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="252" description="A doctrine query builder" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine\ORM\QueryBuilder">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine\ORM\QueryBuilder</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type>boolean</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="275" package="Default">
+        <name>findAll</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAll()</full_name>
+        <docblock line="275">
+          <description>Retruns all the objects</description>
+          <long-description></long-description>
+          <tag name="return" line="275" description="Collection all the objects" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="289" package="Default">
+        <name>findAllInRange</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAllInRange()</full_name>
+        <docblock line="289">
+          <description>Retruns all the objects in a range between $offset and ($offset + $limit)</description>
+          <long-description></long-description>
+          <tag name="return" line="289" description="Collection all the objects" type="\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\Doctrine</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$offset</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$limit</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="303" package="Default">
+        <name>findAllPaginated</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::findAllPaginated()</full_name>
+        <docblock line="303">
+          <description>Retruns all the objects, paginated with PagerFanta</description>
+          <long-description></long-description>
+          <tag name="return" line="303" description="Pager" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="319" package="Default">
+        <name>getFullClassname</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getFullClassname()</full_name>
+        <docblock line="319">
+          <description>Return the full class name</description>
+          <long-description></long-description>
+          <tag name="param" line="319" description="&lt;p&gt;A basic class name (null = managed objects)&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="319" description="The full class name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="335" package="Default">
+        <name>createNew</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::createNew()</full_name>
+        <docblock line="335">
+          <description>Creates a new Instance of the specific Object</description>
+          <long-description></long-description>
+          <tag name="param" line="335" description="&lt;p&gt;A specific object class name. If null, managed Object Will be used&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="335" description="The created Object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="348" package="Default">
+        <name>persistAndFlush</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::persistAndFlush()</full_name>
+        <docblock line="348">
+          <description>Persist an object and flush the Doctrine Object Manager</description>
+          <long-description></long-description>
+          <tag name="param" line="348" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="348" description="The persisted object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="362" package="Default">
+        <name>persist</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::persist()</full_name>
+        <docblock line="362">
+          <description>Persist an object</description>
+          <long-description></long-description>
+          <tag name="param" line="362" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="362" description="The persisted object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="376" package="Default">
+        <name>flush</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::flush()</full_name>
+        <docblock line="376">
+          <description>flush the Doctrine Object Manager</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="385" package="Default">
+        <name>toggleState</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::toggleState()</full_name>
+        <docblock line="385">
+          <description>Toggle state and save</description>
+          <long-description></long-description>
+          <tag name="param" line="385" description="&lt;p&gt;The object to persist&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="412" package="Default">
+        <name>isNew</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::isNew()</full_name>
+        <docblock line="412">
+          <description>Tells if an object is new</description>
+          <long-description></long-description>
+          <tag name="param" line="412" description="&lt;p&gt;The object to test&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="412" description="TRUE if new, FALSE otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="424" package="Default">
+        <name>getByField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getByField()</full_name>
+        <docblock line="424">
+          <description>Retrieve an object matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="424" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="424" description="" type="Object">
+            <type>Object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="438" package="Default">
+        <name>getAllByField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByField()</full_name>
+        <docblock line="438">
+          <description>Retrieve objects matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="438" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="438" description="" type="Array">
+            <type>Array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="453" package="Default">
+        <name>getAllByFieldPaginated</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByFieldPaginated()</full_name>
+        <docblock line="453">
+          <description>Retrieve paginated object list matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="453" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="453" description="" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="474" package="Default">
+        <name>getAllByFieldPaginatedAndSorted</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getAllByFieldPaginatedAndSorted()</full_name>
+        <docblock line="474">
+          <description>Retrieve paginated and sorted object list matching the criteria in the array</description>
+          <long-description></long-description>
+          <tag name="param" line="474" description="&lt;p&gt;criteria to be matched&lt;/p&gt;" type="Array" variable="$criteria">
+            <type>Array</type>
+          </tag>
+          <tag name="return" line="474" description="" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$criteria</name>
+          <default></default>
+          <type>Array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$page</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sortField</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sortDirection</name>
+          <default>'ASC'</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$onlyActive</name>
+          <default>true</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="500" package="Default">
+        <name>checkInstance</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::checkInstance()</full_name>
+        <docblock line="500">
+          <description>Check if an object is an instance of the managed object</description>
+          <long-description></long-description>
+          <tag name="param" line="500" description="&lt;p&gt;The object to test&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="param" line="500" description="&lt;p&gt;The className to check (null = default managed class)&lt;/p&gt;" type="string" variable="$className">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="500" description="True if the instance is a match, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="514" package="Default">
+        <name>getSingleScalarField</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getSingleScalarField()</full_name>
+        <docblock line="514">
+          <description>Gets the scalar value of a field, for a specific object</description>
+          <long-description></long-description>
+          <tag name="param" line="514" description="&lt;p&gt;The target object Id&lt;/p&gt;" type="integer" variable="$objectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="514" description="&lt;p&gt;The target field&lt;/p&gt;" type="string" variable="$fieldName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="514" description="The scalar result" type="\Skwi\Bundle\ProjectBaseBundle\Manager\misc">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\misc</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fieldName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="529" package="Default">
+        <name>setPagerDefaultMaxPerPage</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::setPagerDefaultMaxPerPage()</full_name>
+        <docblock line="529">
+          <description>Sets the max per page for paginated display</description>
+          <long-description></long-description>
+          <tag name="param" line="529" description="&lt;p&gt;The max item per page&lt;/p&gt;" type="integer" variable="$pagerMaxPerPage">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pagerMaxPerPage</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="539" package="Default">
+        <name>getPagerFromQueryBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::getPagerFromQueryBuilder()</full_name>
+        <docblock line="539">
+          <description>Init pager with the query builder</description>
+          <long-description></long-description>
+          <tag name="param" line="539" description="&lt;p&gt;The query builder to paginate&lt;/p&gt;" type="\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder" variable="$queryBuilder">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder</type>
+          </tag>
+          <tag name="return" line="539" description="The pager" type="\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta">
+            <type>\Skwi\Bundle\ProjectBaseBundle\Manager\PagerFanta</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$queryBuilder</name>
+          <default></default>
+          <type>\Skwi\Bundle\ProjectBaseBundle\Manager\QueryBuilder</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$maxPerPage</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager" line="558" package="Default">
+        <name>loadFromArray</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager::loadFromArray()</full_name>
+        <docblock line="558">
+          <description>Creates a new Instance of the specific Object and load data form an array
+The object should have a "loadFromArray" method</description>
+          <long-description></long-description>
+          <tag name="param" line="558" description="&lt;p&gt;The data to load within the object&lt;/p&gt;" type="" variable="$dataArray"/>
+          <tag name="param" line="558" description="&lt;p&gt;A specific object class name. If null, managed Object Will be used&lt;/p&gt;" type="" variable="$className"/>
+          <tag name="return" line="558" description="The created Object" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dataArray</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$className</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <inherited_from>\Skwi\Bundle\ProjectBaseBundle\Manager\BaseManager</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="18" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $otherFakeObjectRepository</error>
+    </parse_markers>
+    <source>eJyVkM9OwzAMxu95Ch92gEpoDzD+aUPcpk2DYy5eami2Nolid4DQ3p2kFIQqdYAvlmx/P3/25U2oglIOG+KAhuBh/2L1vHVlTXod/Y6MzJGprzwSC+t73H8VlujwmeJMqZZ/E/ezOpe+dVl2541E60gvfNN4p9cU2bKQM6RX20zZUPBsxce3tMnUyAzZRE8Bek3DJcMPsnpXkGJaFF2GAm4PGGGIg4mXimKGDVu9btrlEL2kLpVwQpG8DXcGjNiA/s+Ff7bUbmtr4Kl1Rqx3wCSrMeHZOPO8g31+K8dEKssX16PzcHXyAxlxVEf1AWET0Ho=</source>
+  </file>
+  <file path="Tests/FakeBundle/Object/EmptyFakeObject.php" generated-path="Tests.FakeBundle.Object.EmptyFakeObject.html" hash="7629133053af6027f22043f4679a8e0b" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="5" package="Default">
+      <extends/>
+      <name>EmptyFakeObject</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\EmptyFakeObject</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+    </parse_markers>
+    <source>eJyzsS/IKODiykvMTS0uSExOVQjOLs+McSrNS8lJjQkoys9KTS5xSixOhYqEpBaXFMe4JWbDBPyTQCqsubiScxKLixVccwtKKkHSEHGuai6uWi4FAFmTI/I=</source>
+  </file>
+  <file path="Tests/FakeBundle/Object/FakeObject.php" generated-path="Tests.FakeBundle.Object.FakeObject.html" hash="4f4716268d8187359cb6d7f8b2c27d0a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="5" package="Default">
+      <extends/>
+      <name>FakeObject</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="8" package="Default">
+        <name>$status</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject::status</full_name>
+        <default>true</default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="8" description="" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="10" package="Default">
+        <name>setUpdatedAt</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject::setUpdatedAt()</full_name>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="15" package="Default">
+        <name>getStatus</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject::getStatus()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="20" package="Default">
+        <name>setStatus</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\FakeObject::setStatus()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$status</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="10" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="20" code="PPC:ERR-50015">Argument $status is missing from the Docblock of setStatus()</error>
+      <error line="20" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="8" code="PPC:ERR-50007">No summary for property $status</error>
+    </parse_markers>
+    <source>eJx9jz0OwjAMhfecwkMHqIQ4QPntwApSYeuSpgYCJY1iBwbE3WlTQAIB3vze82d7NLV7K4SRJyQrFUJ2vOg89aasMF+5+oCKU0n4UNZITPlCHp/CsmgTiRCqkkTQOp0krgKaGsYxzM7SQVHXFcTDIFqnz5IRImLJnmAM7Dw2kGD6otIKtt4o1rUBQt7YsomXc+71Q6RDt+WQvTNJ6G/f53fIWVjzYxgi3msaTLpb/qLohXpc/kl8QzVvRe/Qm7gDPJ1wSQ==</source>
+  </file>
+  <file path="Tests/FakeBundle/Object/OtherFakeObject.php" generated-path="Tests.FakeBundle.Object.OtherFakeObject.html" hash="d64694ce6e0b266413074908f39ce0e1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="5" package="Default">
+      <extends/>
+      <name>OtherFakeObject</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="7" package="Default">
+        <name>getState</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject::getState()</full_name>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object" line="12" package="Default">
+        <name>getFakeProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object\OtherFakeObject::getFakeProperty()</full_name>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="7" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="12" code="PPC:ERR-50008">No summary for method ""</error>
+    </parse_markers>
+    <source>eJyFjrEOwjAMRHd/hUf4hiIhdWAtUhmzuMHQ0JBGsSOEUP+dpoURcZvfnX3e7WMfAQLdWSJZxnZ4OFPncPZsjmm8sdWahD/kxKJiDjR8QdOVRAVgPYlgoz2nYq8c4QU4K+bOO4uXHKy6MeCVtVVS3mwXew0VJdacQrXME/zaLQXzb5GTPv+cmADfL6BHRA==</source>
+  </file>
+  <file path="Tests/Units/Helper/TextHelper.php" generated-path="Tests.Units.Helper.TextHelper.html" hash="3d3342d0072f0acff072d9e784260f37" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Units">\atoum\AtoumBundle\Test\Units</namespace-alias>
+    <namespace-alias name="TestedTextHelper">\Skwi\Bundle\ProjectBaseBundle\Helper\TextHelper</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper" line="8" package="Default">
+      <extends>\atoum\AtoumBundle\Test\Units\Test</extends>
+      <name>TextHelper</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper\TextHelper</full_name>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper" line="18" package="Default">
+        <name>testSlug</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper\TextHelper::testSlug()</full_name>
+        <docblock line="18">
+          <description>Test for method slug</description>
+          <long-description></long-description>
+          <tag name="param" line="18" description="&lt;p&gt;The string to slug&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="18" description="&lt;p&gt;The slugged string&lt;/p&gt;" type="string" variable="$slug">
+            <type>string</type>
+          </tag>
+          <tag name="dataProvider" line="18" description="testSlugProvider"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$slug</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper" line="33" package="Default">
+        <name>testSlugProvider</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper\TextHelper::testSlugProvider()</full_name>
+        <docblock line="33">
+          <description>Provider for testSlug method</description>
+          <long-description></long-description>
+          <tag name="return" line="33" description="Provided data" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class ""</error>
+    </parse_markers>
+    <source>eJyNU0uO1DAQ3ecUtWiYpNVW76f5joTEEmmaXW9MUt02OHawywwIzYaTILEYkJC4A7kJJ8GOnRAyI4QXdvn5vVflcvLgcSe6otC8RdfxGuHyzZU8XHjdKDy8sOY11nTBHWZkj47c4aWWYX6OqkO7KwrvEDgZ3x6exnlGTczdwPi3cTILoveUQuAOogU2f7CQq1bcxYOJFiLUjYNUU1QUHwsIY7teDyusBx84GgstkjANOOVP+WykPOm45S04slKfYJXXvcARIjOX3eKHo4AP/BCesMlHyzQNJx5u/042oXYKdV0G+ghk1nZYO/9KyRqOXtckjZ7IZS5uk7JWAzldOY4VCemmXRzskTyWK4vOK4KHt5p6fu5mrlW10JJAvYASc7RcCqR79tZztTflrL44dkN0XSxfZ2pHfKHxlvmplu2zSN5q4NbyD6OwgdjU/+rdmKpcdm3uW/51oQSdCVTKnG0gB9XmLlL+Gq4kCRj+pihIIIsgS+Dd4vuB2P/IcuZM++vT93uO+i/61H/bbvsb0X+2NfVf7ernTTRmQcAmZ9OGfdwKFljMsnmaauz99W9d9DVl</source>
+  </file>
+  <file path="Tests/Units/Manager/BaseManager.php" generated-path="Tests.Units.Manager.BaseManager.html" hash="75d5f6c81bcb8e465df41e8ca673cd6d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Units">\atoum\AtoumBundle\Test\Units</namespace-alias>
+    <namespace-alias name="FakeManager">\Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="8" package="Default">
+      <extends>\atoum\AtoumBundle\Test\Units\Test</extends>
+      <name>BaseManager</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager</full_name>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="11" package="Default">
+        <name>$mockObjectManager</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::mockObjectManager</full_name>
+        <default></default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="11" description="" type="\Doctrine\Common\Persistence\ObjectManager" variable="">
+            <type>\Doctrine\Common\Persistence\ObjectManager</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="13" package="Default">
+        <name>$mockRepository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::mockRepository</full_name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="13" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="15" package="Default">
+        <name>$mockOtherRepository</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::mockOtherRepository</full_name>
+        <default></default>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="15" description="" type="\Doctrine\Common\Persistence\ObjectRepository" variable="">
+            <type>\Doctrine\Common\Persistence\ObjectRepository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="17" package="Default">
+        <name>$mockQuery</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::mockQuery</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="17" description="" type="\Doctrine\ORM\Query" variable="">
+            <type>\Doctrine\ORM\Query</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="19" package="Default">
+        <name>$mockQueryBuilder</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::mockQueryBuilder</full_name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="19" description="" type="\Doctrine\ORM\QueryBuilder" variable="">
+            <type>\Doctrine\ORM\QueryBuilder</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="21" package="Default">
+        <name>testCreateNew</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testCreateNew()</full_name>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="33" package="Default">
+        <name>testGetStateProperty</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testGetStateProperty()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="56" package="Default">
+        <name>testGetStateValue</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testGetStateValue()</full_name>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="70" package="Default">
+        <name>testSave</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testSave()</full_name>
+        <docblock line="70">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="88" package="Default">
+        <name>testDelete</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testDelete()</full_name>
+        <docblock line="88">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="104" package="Default">
+        <name>testFind</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testFind()</full_name>
+        <docblock line="104">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="130" package="Default">
+        <name>testFindAll</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testFindAll()</full_name>
+        <docblock line="130">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="163" package="Default">
+        <name>testFindAllInRange</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testFindAllInRange()</full_name>
+        <docblock line="163">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="184" package="Default">
+        <name>testToggleState</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::testToggleState()</full_name>
+        <docblock line="184">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager" line="210" package="Default">
+        <name>createTestedClass</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager\BaseManager::createTestedClass()</full_name>
+        <docblock line="210">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="21" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="33" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="56" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="70" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="88" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="104" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="130" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="163" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="184" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="210" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $mockObjectManager</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $mockRepository</error>
+      <error line="15" code="PPC:ERR-50007">No summary for property $mockOtherRepository</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $mockQuery</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $mockQueryBuilder</error>
+    </parse_markers>
+    <source>eJzlWUtv4zYQvvtX8BBAcuB0N+0eFnWT1nkVe8hm62Tbiy60NLbVSJQjUk6MIv+9fFg2qbcU2ylQHYKYmsc38w01fPzy62K+6PUIDoEusAvo/vHZdy4S4gXgfIujv8FlF5jCeuQBKKPOd+Lzv7eY4BnEw14voYAwi5LQGYm/mqwSHUqJJpZv8GM6sDYvh7au3ABTioTeegzBCwPiUaRACTO9f3qIPx+Oj9FvSxwj5ypyWewTcC6jMIyI8w1i6lOu5oJzNxFAUmPHH6TqIvaXmAE6CiP30ZAYtjY9hkVEfRbFq0Lr29c7N33H5hA3sH83vnX+SKDEinxTr3uR+IFXkkFdgHMo3yeTwHfRNCEu8yOCGOftMgau8hWe7b6UUTSK54jNfbr5JZ6Tc39qHwkt8C5lTZwpqZNzV5p52L6y+/2MLk8MMYbUcCSzaphNzUlU/ZzOGgr9QijDnJi7qW05LQtdcSlH1L9W3k8tNkuSrdvYK9ict40zVSmv5Sz/DuyecdTc2QJitmpE9sxfAunOd6ZWTs4pMIXctrbB/VyevtKSoWIazDLWZ7kQy8m4fkpw8BDZFueEJdTqCL2G/gPhh0bwTdvWlKNOf70DbtN9t+xfhwu2qp58JZGoV/yb6uNJADuIhyRB0GE2/omDBA4xFUv4rMnAiCNepiDrk8DiBN5aiQN0+j7gT1vQd4+XbVjL+W5M4yCvqjoS1yLwjBzR59/c+WwzO/UUivDXQJqSJYBudErIcHEQ8C8asO8Lj2fCG/EpzVsw75l20cxWJlXucivGah8LtairMK9LT4OEzjXZ5oVyBQGw/3OpeCoBnYqlE7MxhNES9k7sjU+8g9CaSXfGOhfhX03eFDkc5MEUJwFDocyTh4Awv0lznYpYTn/sSs52q1OTbO6mYI29FXv22XwUz5KQA6cCUIVslrCCdERibdYtGZ8+D1Dd0r558Zr7wZ0m6dPnNklqVNUjDuM/VtgcEhJxI59g2dSb0SgimeKAQlfm9A10NW2YeH9xlrPATFECS4hrilaEGpFghdoGuu/ZqxjUM1IZa+OmveMcm9PDin5Q+zteiaeHxsvXoVJ4h35rHY6B8g7QxmPTb8IXMsZkdpilTLslxtQEePpxgH76uP8pz5ept/hFJTx7fmDKmzXJsbWvh4zjGz+mTbjOdNQunvdSie2r8CGazQKQ+7p3Xk3L5wyVnla2K16mxdVykTyJogAwSdU2G98kt/1f+95sdVVTzEOrTFfjQ5iqjUi3rJUkAF5cWIgKyQMXT1o/dh8l1DwkGKSQ+loZVQdfRNSwUPc1N1rMhnEePE74+jSE6zSkoqNdNTnWJ/yb2VH2/dTnh1H0YjOo3e7Y/WGvUFQSrkj+ikPQSbe00CtU5NWWbbXbc1omns1nR8Vmba9A4tC4ArH4kt255YImOPOzlY7rW+KrJAxXdoVSesdSrfRUXEVnOXO6zqShzuYWpwaj/AiIJFxGhMVREAh+5aAe/llmbiD76InPBBQDS2LCYQ3Ra1dXZncqdDUxfE3e5mzbg4vjKnJW5E271NtWyJrrFjeCJXWU2QPuxHrMhxvUnH4TWR14SZLzK/83Jdq8+TXmVNP74rIk6zLlM8GgIReHyKoeifidqdBsTzTPCTS2Kg4Bqr65Zqylx2BVkKov2TTnaZiahbTf8D72L9JF+oo=</source>
+  </file>
+  <file path="Twig/Extension/EncoderExtension.php" generated-path="Twig.Extension.EncoderExtension.html" hash="b0937259f17dc9222e0d008ea003b2f0" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="5" package="Default">
+      <extends>\Twig_Extension</extends>
+      <name>EncoderExtension</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\EncoderExtension</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="7" package="Default">
+        <name>getFilters</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\EncoderExtension::getFilters()</full_name>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="16" package="Default">
+        <name>getName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\EncoderExtension::getName()</full_name>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="7" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="16" code="PPC:ERR-50008">No summary for method ""</error>
+    </parse_markers>
+    <source>eJx1UMGKwjAQvecr5rDQFvay564rFPS4CPVYkGw6W6NxGjIpXZH+u8bWoAt9p+TNm/eY97m0eysEyROylQqhPPa6KjqqDVYb1x5Q+UIyTsy21021+vNIrFvKhVBGMsOKVFujiwPA8KoZ7gu7yIuLgBts92O0gt+OlA/qBv1aG4+O0+wuGGUBDn3nCKRz8pxGNiDhvfxIYPEFhP0UVOqTNTh6paPg/ZGSvrF3mprsyf1fSliIsvxFNWQv32k6iLl7vm+Fzh2T4FjXDh+9JNFuEFf2zXhF</source>
+  </file>
+  <file path="Twig/Extension/TextHelperExtension.php" generated-path="Twig.Extension.TextHelperExtension.html" hash="c62a2b01aa33a59e493db08ceaa01032" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="TextHelper">\Skwi\Bundle\ProjectBaseBundle\Helper\TextHelper</namespace-alias>
+    <class final="false" abstract="false" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="7" package="Default">
+      <extends>\Twig_Extension</extends>
+      <name>TextHelperExtension</name>
+      <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="9" package="Default">
+        <name>getFilters</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension::getFilters()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="17" package="Default">
+        <name>slug</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension::slug()</full_name>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="22" package="Default">
+        <name>striptags</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension::striptags()</full_name>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Skwi\Bundle\ProjectBaseBundle\Twig\Extension" line="27" package="Default">
+        <name>getName</name>
+        <full_name>\Skwi\Bundle\ProjectBaseBundle\Twig\Extension\TextHelperExtension::getName()</full_name>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="17" code="PPC:ERR-50015">Argument $string is missing from the Docblock of slug()</error>
+      <error line="17" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="22" code="PPC:ERR-50015">Argument $string is missing from the Docblock of striptags()</error>
+      <error line="22" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="27" code="PPC:ERR-50008">No summary for method ""</error>
+    </parse_markers>
+    <source>eJyNkttqwzAMhu/9FL4oJIE+QbsDFDZ2szFYLwPBSzTHm+cYSyYdo+8+O0nddawHXYmfT78ky1e3trWMGfEJaEUN/OWjV+XKm0ZD+ey6d6hpJRAmZd0rWd5tCAyqziwZ83iu5AG0BVeuYUNjGqpqLRD5XkqOHGLWIB86VUln34yHsP5Vq5q/eVNTpCXQvdIEDvNiAEYshgPyznDhnPjKkxojQ+1lxq9vuIF+ajS6VI9AbdfkM2oVziewmP+pJqcsCYmXWST6l0+xHNIt+3ep2DWfxUIjj2y1f7nF4gA/bbyb5Yz7wFUH4EnfcIWn8H+OnSCjMG07TFvB7qBZctz+AHs8yyQ=</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="Skwi" full_name="Skwi">
+    <namespace name="Bundle" full_name="Skwi\Bundle">
+      <namespace name="ProjectBaseBundle" full_name="Skwi\Bundle\ProjectBaseBundle">
+        <namespace name="Composer" full_name="Skwi\Bundle\ProjectBaseBundle\Composer"/>
+        <namespace name="DependencyInjection" full_name="Skwi\Bundle\ProjectBaseBundle\DependencyInjection"/>
+        <namespace name="Encoder" full_name="Skwi\Bundle\ProjectBaseBundle\Encoder"/>
+        <namespace name="Helper" full_name="Skwi\Bundle\ProjectBaseBundle\Helper"/>
+        <namespace name="Manager" full_name="Skwi\Bundle\ProjectBaseBundle\Manager"/>
+        <namespace name="Tests" full_name="Skwi\Bundle\ProjectBaseBundle\Tests">
+          <namespace name="FakeBundle" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle">
+            <namespace name="Manager" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager"/>
+            <namespace name="Object" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Object"/>
+          </namespace>
+          <namespace name="Units" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\Units">
+            <namespace name="Helper" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper"/>
+            <namespace name="Manager" full_name="Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager"/>
+          </namespace>
+        </namespace>
+        <namespace name="Twig" full_name="Skwi\Bundle\ProjectBaseBundle\Twig">
+          <namespace name="Extension" full_name="Skwi\Bundle\ProjectBaseBundle\Twig\Extension"/>
+        </namespace>
+      </namespace>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>
