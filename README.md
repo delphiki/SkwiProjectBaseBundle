@@ -42,7 +42,34 @@ skwi_project_base:
 
 ##Usage
 ###Base Manager
-The BaseManager is a useful abstract class, especially when working with object managed by an ORM. It provide several methods described in a [dedicated documentation](https://github.com/skwi/SkwiProjectBaseBundle/blob/master/src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/BaseManager.md).
+This abstract class provides methods for object managed by Doctrine ORM or Doctrine ODM and MongoDb.
+####Philosophy
+The idea is to extends this class to manage a specific entity. Other entities can be managed by an single manager but the `$objectName` and `$repository` property will be used for a default managed entity.
+####Setup
+It's recommended for a manager extend the class and to be injected as a service.
+```yaml
+# service.yml
+mybundle.manager.poney :
+        class  : 'Foo\\Bundle\\BarBundle\\Manager\\PoneyManager'
+        parent : skwi.projectbase.base_manager
+        calls  :
+            - [setObjectManager, [@doctrine.orm.entity_manager]]
+            - [setObject, ['FooBarBundle:Poney']]
+```
+```php
+<?php
+
+namespace Foo\Bundle\BarBundle\Manager;
+
+use Skwi\Bundle\ProjectBaseBundle\Manager;
+
+class PoneyManager extends BaseManager 
+{
+	#...
+}
+```
+####Methods
+The method provided by the base manager are described in the class [API documentation](https://github.com/skwi/SkwiProjectBaseBundle/blob/master/src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/Skwi-Bundle-ProjectBaseBundle-Manager-BaseManager.md).
 ###Password encoder
 The password encoder class provides an implementation of Symfony's [PasswordEncoderInterface](http://api.symfony.com/master/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.html) using the algorithm defined in the *app/config.yml* file
 
@@ -96,6 +123,13 @@ Unit tests are written using [atoum](https://github.com/atoum/atoum). You will g
 running `composer install`. To run tests, you will need to run the following command :
 ``` sh
 $ vendor/bin/atoum
+```
+## API Documentation
+API documentation is generated with [PHPDoc](http://www.phpdoc.org/) and [phpdoc-md](https://github.com/evert/phpdoc-md) 
+To generate it, you will need to run the following commands :
+``` sh
+$ vendor/bin/phpdoc -d src/ -t src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/ --template="xml"
+$ vendor/bin/phpdocmd src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/structure.xml src/Skwi/Bundle/ProjectBaseBundle/Resources/doc
 ```
 ##ToDo
 - Remove or enhance the data format helper
