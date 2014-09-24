@@ -229,7 +229,7 @@ abstract class BaseManager
     }
 
     /**
-     * Retruns the object matching a specific Id optionnaly
+     * Returns the object matching a specific Id optionnaly
      * for a specific type of Object handled by this manager
      *
      * @param int    $id         The id of the object
