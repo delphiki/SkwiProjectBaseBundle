@@ -99,7 +99,6 @@ class BaseManager extends Units\Test
                 ->mock($this->mockObjectManager)
                     ->call('persist')->once()
                     ->call('flush')->once()
-
         ;
     }
 
@@ -115,7 +114,6 @@ class BaseManager extends Units\Test
                 ->mock($this->mockObjectManager)
                     ->call('remove')->once()
                     ->call('flush')->once()
-
         ;
     }
 
@@ -141,7 +139,6 @@ class BaseManager extends Units\Test
                     ->call('find')
                         ->withArguments(48)
                         ->once()
-
         ;
     }
 
@@ -196,6 +193,24 @@ class BaseManager extends Units\Test
                 ->mock($this->mockQuery)
                     ->call('getResult')
                     ->once()
+        ;
+    }
+
+    public function testGetAllByField()
+    {
+        $this
+            ->given(
+                $fields = array('field1' => 'value', 'field2' => 'value'),
+                $orders = array('order1' => 'ASC', 'order2' => 'ASC'),
+                $fieldsCall = array('field1' => 'value', 'field2' => 'value', 'status' => 1)
+            )
+            ->if($testedClass = $this->createTestedClass())
+            ->given($testedClass->getAllByField($fields, true, $orders))
+            ->then
+                ->mock($this->mockRepository)
+                    ->call('findBy')
+                        ->withArguments($fieldsCall, $orders)
+                        ->once()
         ;
     }
 

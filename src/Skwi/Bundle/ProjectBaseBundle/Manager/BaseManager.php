@@ -447,13 +447,13 @@ abstract class BaseManager
      * @param  Array $criteria criteria to be matched
      * @return Array
      */
-    public function getAllByField($criteria, $onlyActive = true)
+    public function getAllByField($criteria, $onlyActive = true, array $orders = array())
     {
         if ($onlyActive && $this->getStateProperty()) {
             $criteria = array_merge($criteria, array($this->getStateProperty() => 1));
         }
 
-        return $this->repository->findBy($criteria);
+        return $this->repository->findBy($criteria, $orders);
     }
 
     /**
