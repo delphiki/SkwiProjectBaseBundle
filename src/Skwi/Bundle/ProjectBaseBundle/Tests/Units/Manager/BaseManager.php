@@ -150,9 +150,11 @@ class BaseManager extends Units\Test
             )
 
             ->assert('Find All with inactive')
-            ->if($testedClass->findAll(false))
+            ->if($testedClass->findAll(false, array('field1' => 'order', 'field2' => 'order')))
             ->then
                 ->mock($this->mockQueryBuilder)
+                    ->call('addOrderBy')
+                        ->twice()
                     ->call('andWhere')
                         ->never()
 
@@ -166,6 +168,8 @@ class BaseManager extends Units\Test
                     ->call('andWhere')
                         ->withArguments('o.status = 1')
                         ->once()
+                    ->call('addOrderBy')
+                        ->never()
                 ->mock($this->mockQueryBuilder)
                     ->call('getQuery')
                         ->once()
@@ -181,9 +185,11 @@ class BaseManager extends Units\Test
             ->given(
                 $testedClass = $this->createTestedClass()
             )
-            ->if($testedClass->findAllInRange(10, 30))
+            ->if($testedClass->findAllInRange(10, 30, true, array('field1' => 'order', 'field2' => 'order')))
             ->then
                 ->mock($this->mockQueryBuilder)
+                    ->call('addOrderBy')
+                        ->twice()
                     ->call('setMaxResults')
                         ->withArguments(30)
                         ->once()
