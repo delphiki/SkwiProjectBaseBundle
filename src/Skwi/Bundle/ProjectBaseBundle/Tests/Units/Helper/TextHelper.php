@@ -13,15 +13,15 @@ class TextHelper extends Units\Test
      * @param string $string The string to slug
      * @param string $slug   The slugged string
      *
-     * @dataProvider testSlugProvider
+     * @dataProvider slugDataProvider
      */
     public function testSlug($string, $slug)
     {
         $this
             ->if($result = TestedTextHelper::slug($string))
             ->then
-            ->string($result)
-            ->isEqualTo($slug)
+                ->string($result)
+                    ->isEqualTo($slug)
         ;
     }
 
@@ -30,7 +30,7 @@ class TextHelper extends Units\Test
      *
      * @return array Provided data
      */
-    public function testSlugProvider()
+    public function slugDataProvider()
     {
         return array(
             array('hello', 'hello'),

@@ -272,13 +272,20 @@ abstract class BaseManager
      *
      * @return Doctrine Collection all the objects
      */
-    public function findAll($onlyActive = true)
+    public function findAll($onlyActive = true, array $orders = array())
     {
-        if ($this->getManagedType() == 'Document') {
-            return $this->createBaseQueryBuilder($onlyActive)->getQuery()->execute();
-        } else {
-            return $this->createBaseQueryBuilder($onlyActive)->getQuery()->getResult();
+        $qb = $this->createBaseQueryBuilder($onlyActive);
+        foreach ($orders as $field => $order) {
+            $qb->addOrderBy($field, $order);
         }
+
+        $query = $qb->getQuery();
+
+        if ($this->getManagedType() == 'Document') {
+            return $query->execute();
+        }
+
+        return $query->getResult();
     }
 
     /**
@@ -286,13 +293,18 @@ abstract class BaseManager
      *
      * @return Doctrine Collection all the objects
      */
-    public function findAllInRange($offset, $limit, $onlyActive = true)
+    public function findAllInRange($offset, $limit, $onlyActive = true, array $orders = array())
     {
-        if ($this->getManagedType() == 'Document') {
-            return $this->createBaseQueryBuilder($onlyActive)->limit($limit)->skip($offset)->getQuery()->execute();
-        } else {
-            return $this->createBaseQueryBuilder($onlyActive)->setMaxResults($limit)->setFirstResult($offset)->getQuery()->getResult();
+        $qb = $this->createBaseQueryBuilder($onlyActive);
+        foreach ($orders as $field => $order) {
+            $qb->addOrderBy($field, $order);
         }
+
+        if ($this->getManagedType() == 'Document') {
+            return $qb->limit($limit)->skip($offset)->getQuery()->execute();
+        }
+
+        return $qb->setMaxResults($limit)->setFirstResult($offset)->getQuery()->getResult();
     }
 
     /**
@@ -300,11 +312,15 @@ abstract class BaseManager
      *
      * @return PagerFanta Pager
      */
-    public function findAllPaginated($page, $maxPerPage = null, $onlyActive = true)
+    public function findAllPaginated($page, $maxPerPage = null, $onlyActive = true, array $orders = array())
     {
         $maxPerPage = $maxPerPage > 0 ? $maxPerPage : $this->pagerMaxPerPage;
 
         $qb = $this->createBaseQueryBuilder($onlyActive);
+        foreach ($orders as $field => $order) {
+            $qb->addOrderBy($field, $order);
+        }
+
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
         $pager->setCurrentPage($page);
 
@@ -447,13 +463,13 @@ abstract class BaseManager
      * @param  Array $criteria criteria to be matched
      * @return Array
      */
-    public function getAllByField($criteria, $onlyActive = true)
+    public function getAllByField($criteria, $onlyActive = true, array $orders = array())
     {
         if ($onlyActive && $this->getStateProperty()) {
             $criteria = array_merge($criteria, array($this->getStateProperty() => 1));
         }
 
-        return $this->repository->findBy($criteria);
+        return $this->repository->findBy($criteria, $orders);
     }
 
     /**
@@ -462,9 +478,12 @@ abstract class BaseManager
      * @param  Array $criteria criteria to be matched
      * @return PagerFanta
      */
-    public function getAllByFieldPaginated($criteria, $page, $maxPerPage = null, $onlyActive = true)
+    public function getAllByFieldPaginated($criteria, $page, $maxPerPage = null, $onlyActive = true, array $orders = array())
     {
         $qb = $this->createBaseQueryBuilder($onlyActive);
+        foreach ($orders as $field => $order) {
+            $qb->addOrderBy($field, $order);
+        }
 
         foreach ($criteria as $key => $value) {
             $qb->andWhere(sprintf('o.%1$s = :%1$s', $key))
@@ -492,8 +511,16 @@ abstract class BaseManager
                ->setParameter($key, $value);
         }
 
-        if ($sortField) {
-            $qb->orderBy(sprintf('o.%s', $sortField), $sortDirection);
+        if (null !== $sortField) {
+            if (is_string($sortField)) {
+                $qb->orderBy(sprintf('o.%s', $sortField), $sortDirection);
+            }
+
+            if (is_array($sortField)) {
+                foreach ($sortField as $field) {
+                    $qb->addOrderBy($field, $sortDirection);
+                }
+            }
         }
 
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
