@@ -139,3 +139,11 @@ $ vendor/bin/phpdocmd src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/structure.
 - Update to symfony 2.5 with the property accessor
 
 ##Known issues
+
+##Versioning
+This project uses semantic versioning. After 1.0 (first stable version), versions are formated this way :
+**MAJOR.MINOR.PATCH**.
++ MAJOR version for incompatible API changes, likely breaking backward compatibility ;
++ MINOR version for new functionality (backwards-compatible) ;
++ PATCH version for backward compatible bug fixes.
+
