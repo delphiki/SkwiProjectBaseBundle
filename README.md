@@ -141,7 +141,7 @@ $ vendor/bin/phpdocmd src/Skwi/Bundle/ProjectBaseBundle/Resources/doc/structure.
 ##Known issues
 
 ##Versioning
-This project uses semantic versioning. After 1.0 (first stable version), versions are formated this way :
+As of version 2.0.0, version tags are formated in a semantic way :
 **MAJOR.MINOR.PATCH**.
 + MAJOR version for incompatible API changes, likely breaking backward compatibility ;
 + MINOR version for new functionality (backwards-compatible) ;
