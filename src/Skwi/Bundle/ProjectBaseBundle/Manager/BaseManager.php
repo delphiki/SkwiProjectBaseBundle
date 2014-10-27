@@ -276,7 +276,7 @@ abstract class BaseManager
     {
         $qb = $this->createBaseQueryBuilder($onlyActive);
         foreach ($orders as $field => $order) {
-            $qb->addOrderBy($field, $order);
+            $qb->addOrderBy(sprintf('o.%s', $field), $order);
         }
 
         $query = $qb->getQuery();
@@ -297,7 +297,7 @@ abstract class BaseManager
     {
         $qb = $this->createBaseQueryBuilder($onlyActive);
         foreach ($orders as $field => $order) {
-            $qb->addOrderBy($field, $order);
+            $qb->addOrderBy(sprintf('o.%s', $field), $order);
         }
 
         if ($this->getManagedType() == 'Document') {
@@ -318,7 +318,7 @@ abstract class BaseManager
 
         $qb = $this->createBaseQueryBuilder($onlyActive);
         foreach ($orders as $field => $order) {
-            $qb->addOrderBy($field, $order);
+            $qb->addOrderBy(sprintf('o.%s', $field), $order);
         }
 
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
@@ -482,7 +482,7 @@ abstract class BaseManager
     {
         $qb = $this->createBaseQueryBuilder($onlyActive);
         foreach ($orders as $field => $order) {
-            $qb->addOrderBy($field, $order);
+            $qb->addOrderBy(sprintf('o.%s', $field), $order);
         }
 
         foreach ($criteria as $key => $value) {
