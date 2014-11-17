@@ -439,7 +439,8 @@ abstract class BaseManager
     */
     public function isNew($object)
     {
-        $UnitOfWorkObjectState = $this->om->getUnitOfWork()->getObjectState($object);
+        $stateGetMethod = sprintf('get%sState', $this->getManagedType());
+        $UnitOfWorkObjectState = $this->om->getUnitOfWork()->$stateGetMethod($object);
 
         return $UnitOfWorkObjectState === \Doctrine\ORM\UnitOfWork::STATE_NEW;
     }
