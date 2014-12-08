@@ -518,7 +518,7 @@ abstract class BaseManager
 
             if (is_array($sortField)) {
                 foreach ($sortField as $field) {
-                    $qb->addOrderBy($field, $sortDirection);
+                    $qb->addOrderBy(sprintf('o.%s', $field), $sortDirection);
                 }
             }
         }
