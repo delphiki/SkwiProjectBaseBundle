@@ -245,6 +245,23 @@ class BaseManager extends Units\Test
         ;
     }
 
+    public function getMagicCallRepository()
+    {
+        $this
+            ->if($this->newTestedInstance())
+            ->when($this->testedInstance->findOneByProperty('propValue'))
+            ->then
+                ->mock($this->mockRepository)
+                    ->call('__call')->once()
+                    ->call('findOneBy')->once()
+
+            ->when($this->testedInstance->find(5))
+            ->then
+                ->mock($this->mockRepository)
+                    ->call('__call')->never()
+                    ->call('find')->once()
+        ;
+    }
 
     private function createTestedClass()
     {
@@ -262,7 +279,7 @@ class BaseManager extends Units\Test
         $this->mockQueryBuilder->getMockController()->setFirstResult = function() use ($qb) { return $qb; };
         $this->mockQueryBuilder->getMockController()->setMaxResults  = function() use ($qb) { return $qb; };
 
-        $this->mockRepository      = new\mock\Doctrine\Common\Persistence\ObjectRepository();
+        $this->mockRepository      = new\mock\Doctrine\ORM\Persistence\EntityRepository();
         $this->mockOtherRepository = new\mock\Doctrine\Common\Persistence\ObjectRepository();
         $repo                      = $this->mockRepository;
 
