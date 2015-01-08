@@ -604,4 +604,17 @@ abstract class BaseManager
 
         return $object;
     }
+
+    /**
+     * Adds support for magic finders
+     *
+     * @param string $method
+     * @param array $arguments
+     * @return array|object The found entity/entities
+     * @throws \BadMethodCallException
+     */
+    public function __call($method, $arguments)
+    {
+        return $this->repository->__call($method, $arguments);
+    }
 }
