@@ -618,7 +618,7 @@ abstract class BaseManager
         // proxy to repository method if exists
         $reflectedClass = new \ReflectionClass($this->repository);
         if ($reflectedClass->hasMethod($method)) {
-            return call_user_func_array([$this->repository, $method], $arguments);
+            return call_user_func_array(array($this->repository, $method), $arguments);
         }
 
         // proxy to Symfony/Doctrine magic finders
