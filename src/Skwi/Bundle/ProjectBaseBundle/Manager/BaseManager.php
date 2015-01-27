@@ -610,11 +610,18 @@ abstract class BaseManager
      *
      * @param string $method
      * @param array $arguments
-     * @return array|object The found entity/entities
+     * @return mixed The found entity/entities
      * @throws \BadMethodCallException
      */
     public function __call($method, $arguments)
     {
+        // proxy to repository method if exists
+        $reflectedClass = new \ReflectionClass($this->repository);
+        if ($reflectedClass->hasMethod($method)) {
+            return call_user_func_array(array($this->repository, $method), $arguments);
+        }
+
+        // proxy to Symfony/Doctrine magic finders
         return $this->repository->__call($method, $arguments);
     }
 }

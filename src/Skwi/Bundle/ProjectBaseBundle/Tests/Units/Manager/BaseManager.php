@@ -260,6 +260,12 @@ class BaseManager extends Units\Test
                 ->mock($this->mockRepository)
                     ->call('__call')->never()
                     ->call('find')->once()
+
+            ->if($instance = $this->createTestedClass())
+            ->when($instance->findCustom())
+            ->then
+                ->mock($this->mockRepository)
+                    ->call('findCustom')->once()
         ;
     }
 
@@ -284,6 +290,7 @@ class BaseManager extends Units\Test
         $repo                      = $this->mockRepository;
 
         $this->mockRepository->getMockController()->createQueryBuilder = function() use ($qb) { return $qb; };
+        $this->mockRepository->getMockController()->findCustom = function() { };
 
         $this->mockObjectManager = new \mock\Doctrine\Common\Persistence\ObjectManager();
         $this->mockObjectManager->getMockController()->getRepository = function() use ($repo) { return $repo; };
