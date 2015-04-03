@@ -486,8 +486,9 @@ abstract class BaseManager
         }
 
         foreach ($criteria as $key => $value) {
-            $qb->andWhere(sprintf('o.%1$s = :%1$s', $key))
-               ->setParameter($key, $value);
+            $operator = (is_array($value)) ? 'IN' : '=';
+            $qb->andWhere(sprintf('o.%1$s %2$s (:%1$s)', $key, $operator))
+                ->setParameter($key, $value);
         }
 
         $pager = $this->getPagerFromQueryBuilder($qb, $maxPerPage);
@@ -507,8 +508,9 @@ abstract class BaseManager
         $qb = $this->createBaseQueryBuilder($onlyActive);
 
         foreach ($criteria as $key => $value) {
-            $qb->andWhere(sprintf('o.%1$s = :%1$s', $key))
-               ->setParameter($key, $value);
+            $operator = (is_array($value)) ? 'IN' : '=';
+            $qb->andWhere(sprintf('o.%1$s %2$s (:%1$s)', $key, $operator))
+                ->setParameter($key, $value);
         }
 
         if (null !== $sortField) {
