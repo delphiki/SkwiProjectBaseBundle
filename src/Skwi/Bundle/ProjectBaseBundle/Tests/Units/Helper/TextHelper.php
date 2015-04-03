@@ -2,10 +2,10 @@
 
 namespace Skwi\Bundle\ProjectBaseBundle\Tests\Units\Helper;
 
-use atoum\AtoumBundle\Test\Units;
+use atoum;
 use Skwi\Bundle\ProjectBaseBundle\Helper\TextHelper as TestedTextHelper;
 
-class TextHelper extends Units\Test
+class TextHelper extends atoum
 {
     /**
      * Test for method slug

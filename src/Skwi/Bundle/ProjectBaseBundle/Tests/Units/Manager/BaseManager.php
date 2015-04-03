@@ -2,10 +2,10 @@
 
 namespace Skwi\Bundle\ProjectBaseBundle\Tests\Units\Manager;
 
-use atoum\AtoumBundle\Test\Units;
+use atoum;
 use Skwi\Bundle\ProjectBaseBundle\Tests\FakeBundle\Manager\FakeManager;
 
-class BaseManager extends Units\Test
+class BaseManager extends atoum
 {
     /** @var \Doctrine\Common\Persistence\ObjectManager */
     private $mockObjectManager;

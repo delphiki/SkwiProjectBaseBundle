@@ -14,14 +14,13 @@
     ],
     "require": {
         "php": ">=5.3.0",
-	    "symfony/framework-bundle": ">=2.1",
+        "symfony/framework-bundle": ">=2.1",
         "doctrine/common": ">=2.1",
         "pagerfanta/pagerfanta": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "atoum/atoum": "dev-master",
-        "atoum/atoum-bundle": "dev-master",
+        "atoum/atoum": "~2.0",
         "doctrine/orm": ">=2.2.3",
         "phpdocumentor/phpdocumentor": "2.*",
         "evert/phpdoc-md" : "~0.0.7"
