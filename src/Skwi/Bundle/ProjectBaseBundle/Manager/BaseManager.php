@@ -181,7 +181,7 @@ abstract class BaseManager
             }
         }
 
-        $matchTest = sprintf('#^%s:([a-z]+)$#i', $this->bundleName);
+        $matchTest = sprintf('#^%s:([a-z\\\]+)$#i', $this->bundleName);
         if (preg_match($matchTest, $objectName, $match)) {
             if ($objectProperty) {
                 $this->$objectProperty = $match[1];
